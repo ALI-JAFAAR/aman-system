@@ -1,0 +1,2 @@
+[06-Mar-2023 06:55:53 America/Chicago] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.3.33. in /home4/alijafar/system.aman-org.org/vendor/composer/platform_check.php on line 24
+[06-Mar-2023 06:55:53 America/Chicago] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.3.33. in /home4/alijafar/system.aman-org.org/vendor/composer/platform_check.php on line 24

@@ -1,0 +1,254 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use App\User;
+use App\Models\PosUser;
+use App\Models\Union;
+use App\Models\Guild;
+use App\ImgUser;
+class Users extends Controller{
+    
+    function index(){
+        $pos = PosUser::all();
+        $union = Union::all();
+        $guild = Guild::all();
+        return view("backend.admin.users.create",compact('pos','union','guild'));
+    
+    }
+
+    function show(){
+        
+        $users = User::where('org_id','!=',1)->with('union','guild')->get();
+        
+        // dd($users);
+        return view("backend.admin.users.show",compact(['users']));
+    
+    }
+
+    function save(Request $res){
+
+        $password_show =$res->password;
+        $org_id=0;
+
+        $user = User::create([
+            'name'          => $res->name,
+            'email'         => $res->email,
+            'phone'         => $res->phone,
+            'password'      => bcrypt($res->password),
+            'position'      => $res->position,
+            'union_id'      => $res->union_id,
+            'guild_id'      => $res->guild_id,
+            'org_id'        => $org_id,
+            'password_show' => $password_show,
+        ]);
+        
+        return redirect()->route('users-show');
+    
+    }
+
+    function view($id){
+       
+        $data = User::where('id',$id)->with('union','guild')->first();
+        $pos = PosUser::all();
+        $union = Union::all();
+        $guild = Guild::all();
+        return view("backend.admin.users.edit",compact('data','pos','union','guild'));
+    
+    }
+
+    function edit($id,Request $res){
+       
+        $row = User::where('id',$id)->first();
+
+        if($res->name !="")
+            $row->name = $res->name;
+
+        if($res->email !="")
+            $row->email = $res->email;
+
+        if($res->phone !="")
+            $row->phone = $res->phone;
+
+        if($res->password_show !=""){
+            $row->password_show = $res->password_show;
+            $row->password = bcrypt($res->password_show);
+        }
+
+        if($res->position !="")
+            $row->position = $res->position;
+
+        if($res->union_id !="")
+            $row->union_id = $res->union_id;
+
+        if($res->guild_id !="")
+            $row->guild_id = $res->guild_id;
+        
+
+        $row->save();
+    
+        return redirect()->route('users-show');
+    
+    }
+
+    function del($id){
+       
+        $row = User::findOrFail($id);
+    
+        $row->delete();
+    
+        return redirect()->route('users-show');
+    
+    }
+
+
+
+
+
+
+
+
+
+    function pos_index(){
+    
+        return view("backend.admin.users.pos.create");
+    
+    }
+
+    function pos_show(){
+        
+        $pos = PosUser::all();
+        
+        return view("backend.admin.users.pos.show",compact(['pos']));
+    
+    }
+
+    function pos_save(Request $res){
+
+        PosUser::create([
+            'position'    => $res->position,
+        ]);
+    
+        return redirect()->route('pos-show');
+    
+    }
+
+    function pos_view($id){
+       
+        $data = PosUser::where('id',$id)->first();
+    
+        return view("backend.admin.users.pos.edit",compact(['data']));
+    
+    }
+
+    function pos_edit($id,Request $res){
+       
+        $row = PosUser::where('id',$id)->first();
+
+        if($res->position !="")
+            $row->position = $res->position;
+        $row->save();
+    
+        return redirect()->route('pos-show');
+    
+    }
+
+    function pos_del($id){
+       
+        $row = PosUser::findOrFail($id);
+    
+        $row->delete();
+    
+        return redirect()->route('pos-show');
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function employee_index(){
+        $pos = PosUser::all();
+        return view("backend.admin.employee.create",compact('pos'));
+    }
+
+    function employee_show(){
+        $employee = User::where([['org_id',1],['type',1]])->with('imgs')->get();
+        
+        return view("backend.admin.employee.show",compact(['employee']));
+    
+    }
+
+    function employee_save(Request $res){
+    
+        $user = User::create([
+            'name'          => $res->name,
+            'email'         => $res->email,
+            'phone'         => $res->phone,
+            'password'      => bcrypt($res->password),
+            'password_show' => $res->password,
+            'type'          => 1,
+            'position'      => $res->position,
+            'org_id'        => 1,
+            'salary'        => $res->salary,
+            'active'        => 1,
+            
+        ]);
+        
+        if($res->imgs != null){
+            foreach ($res->file('imgs') as $imagefile) {
+            
+                ImgUser::create([
+                    'user_id'   => $user->id,
+                    'img'       => 'storage/'.$imagefile->store('public/emp_img','public'), 
+                ]);
+            
+            }
+        }
+
+        return redirect()->route('employee-show');
+    
+    }
+
+    function employee_view($id){
+       
+        $data = User::findOrFail($id);
+        $pos = PosUser::all();
+        return view("backend.admin.employee.edit",compact('data','pos'));
+    
+    }
+
+    function employee_edit($id,Request $res){
+       
+        $row = User::findOrFail($id);
+        $attributes = $res->only(['name','email','phone','position','salary','active']);
+        $row->update($attributes);
+        if ($res->password !== "") {
+            $row->password = bcrypt($res->password);
+            $row->password_show = $res->password;
+        }
+        $row->save();
+        return redirect()->route('employee-show');
+    
+    }
+
+    function employee_del($id){
+        User::findOrFail($id)->delete();
+        $img =ImgUser::where('user_id',$id)->delete();
+        return redirect()->route('employee-show');
+    
+    }
+
+}
