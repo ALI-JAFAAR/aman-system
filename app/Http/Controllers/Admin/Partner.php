@@ -12,7 +12,7 @@ class Partner extends Controller{
     
     function index(){
         $package = Package::all();
-        return view("backend.admin.partner.create",compact('package'));
+        return view("backend.".Auth::user()->user.".partner.create",compact('package'));
     
     }
 
@@ -20,7 +20,7 @@ class Partner extends Controller{
         
         $partner = Partners::with('package')->get();
         
-        return view("backend.admin.partner.show",compact(['partner']));
+        return view("backend.".Auth::user()->user.".partner.show",compact(['partner']));
     
     }
 
@@ -43,7 +43,7 @@ class Partner extends Controller{
        
         $data = Partners::where('id',$id)->with('package')->first();
         $package = Package::all();
-        return view("backend.admin.partner.edit",compact(['data','package']));
+        return view("backend.".Auth::user()->user.".partner.edit",compact(['data','package']));
     
     }
 

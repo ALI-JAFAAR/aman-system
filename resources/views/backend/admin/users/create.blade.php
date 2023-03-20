@@ -85,6 +85,20 @@
 	                </select>
 	              </div>
 
+	              <div class="form-group">
+	                <label for="exampleInputEmail1">الصلاحيات</label>
+	                <select class="form-control" name="type">
+	                	<option></option>
+
+	                	<option  value="guild">رئيس نقابة او موظف نقابة</option>
+
+	                	<option  value="union">رئيس اتحاد  او موظف اتحاد</option>
+
+	                	<option  value="merchant">تاجر</option>
+
+	                </select>
+	              </div>
+
 
 	            <div class="card-footer">
 	            	<br>

@@ -29,10 +29,79 @@ class MainController extends Controller{
         $print     = CardPrinted::all()->count();
         $damage    = DamagedBlank::all()->count();
         $emp       = User::where('org_id',1)->get()->count();
-        // dd($guildcard);
-        return view('backend.admin.index',compact(['guildcard','emp','print','damage']));
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','emp','print','damage']));
 
     }
+
+    function index_accountant(){
+        $guildcard = Customer::where('guild_id','!=',null)->where('guild_id','!=',"")->get()->count();
+        $print     = CardPrinted::all()->count();
+        $damage    = DamagedBlank::all()->count();
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','print','damage']));
+
+    }
+
+    function index_checker(){
+        $guildcard = Customer::where('guild_id','!=',null)->where('guild_id','!=',"")->get()->count();
+        $print     = CardPrinted::all()->count();
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','print']));
+
+    }
+
+    function index_data_entry(){
+        $guildcard = Customer::where('guild_id','!=',null)->where('guild_id','!=',"")->get()->count();
+        $print     = CardPrinted::all()->count();
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','print']));
+
+    }
+
+    function index_guild(){
+        $guildcard = Customer::where('guild_id','!=',null)->where('guild_id','!=',"")->get()->count();
+        $print     = CardPrinted::all()->count();
+        // dd($guildcard);
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','print']));
+
+    }
+
+    function index_hr(){
+
+        $emp       = User::where('org_id',1)->get()->count();
+        // dd($guildcard);
+        return view('backend.'.Auth::user()->type.'.index',compact(['emp']));
+
+    }
+
+    function index_merchant(){
+        $guildcard = Customer::where('guild_id','!=',null)->where('guild_id','!=',"")->get()->count();
+        $print     = CardPrinted::all()->count();
+
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','print']));
+
+    }
+
+    function index_police(){
+        $cus = Customer::all()->count();
+
+        return view('backend.'.Auth::user()->type.'.index',compact(['cus']));
+
+    }
+
+    function index_union(){
+        $guildcard = Customer::where('guild_id','!=',null)->where('guild_id','!=',"")->get()->count();
+        $print     = CardPrinted::all()->count();
+
+        // dd($guildcard);
+        return view('backend.'.Auth::user()->type.'.index',compact(['guildcard','print']));
+
+    }
+
+
+
+
+
+
+
+
 
     function login(){
         
@@ -60,8 +129,40 @@ class MainController extends Controller{
         );
     
         if(Auth::attempt($data)){
-            
-                return redirect()->route('index');
+
+            switch(Auth::user()->type){
+                case "admin":
+                    return redirect()->route('index-admin');
+                break;
+                case "accountant":
+                    return redirect()->route('index-accountant');
+                break;
+                case "checker":
+                    return redirect()->route('index-checker');
+                break;
+                case "data_entry":
+                    return redirect()->route('index-data_entry');
+                break;
+                case "guild":
+                    return redirect()->route('index-guild');
+                break;
+                case "hr":
+                    return redirect()->route('index-hr');
+                break;
+                case "merchant":
+                    return redirect()->route('index-merchant');
+                break;
+                case "union":
+                return redirect()->route('index-union');
+                break;
+                case "police":
+                    return redirect()->route('index-police');
+                break;
+                default:
+                    return redirect()->route('cus-table');
+                break;
+
+            }
 
         }else{
     

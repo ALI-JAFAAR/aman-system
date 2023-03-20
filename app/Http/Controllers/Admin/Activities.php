@@ -10,7 +10,7 @@ class Activities extends Controller{
     
     function index(){
 
-        return view("backend.admin.activity.create");
+        return view("backend.".Auth::user()->user.".activity.create");
     
     }
 
@@ -18,7 +18,7 @@ class Activities extends Controller{
         
         $activity = Activity::all();
         
-        return view("backend.admin.activity.show",compact(['activity']));
+        return view("backend.".Auth::user()->user.".activity.show",compact(['activity']));
     
     }
 
@@ -34,7 +34,7 @@ class Activities extends Controller{
     function view($id){
        
         $data = Activity::where('id',$id)->first();
-        return view("backend.admin.activity.edit",compact('data'));
+        return view("backend.".Auth::user()->user.".activity.edit",compact('data'));
     
     }
 

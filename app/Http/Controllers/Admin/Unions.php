@@ -14,8 +14,7 @@ class Unions extends Controller{
 
     function index(){
         $gov  = Governorate::all();
-        // $user = User::where('union_id','!=',null)->get();
-        return view("backend.admin.union.create",compact('gov'));
+        return view("backend.".Auth::user()->user.".union.create",compact('gov'));
     
     }
 
@@ -23,7 +22,7 @@ class Unions extends Controller{
         
         $union = Union::with('gov')->get();
 
-        return view("backend.admin.union.show",compact(['union']));
+        return view("backend.".Auth::user()->user.".union.show",compact(['union']));
     
     }
 
@@ -34,8 +33,8 @@ class Unions extends Controller{
             'cost_persent'    => $res->cost_persent,
             'cost'    => $res->cost,
             'gov_id' => $res->gov_id,
-            // 'sign'    => 'storage/'.$res->file('sign')->store('public/union','public'),
-            // 'img'       => 'storage/'.$res->file('img')->store('public/union','public'),
+            'sign'    => 'storage/'.$res->file('sign')->store('public/union','public'),
+            'img'       => 'storage/'.$res->file('img')->store('public/union','public'),
         ]);
     
         return redirect()->route('union-show');
@@ -46,7 +45,7 @@ class Unions extends Controller{
        
         $data = Union::where('id',$id)->first();
         $gov = Governorate::all();
-        return view("backend.admin.union.edit",compact(['data','gov']));
+        return view("backend.".Auth::user()->user.".union.edit",compact(['data','gov']));
     
     }
 

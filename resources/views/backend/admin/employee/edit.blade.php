@@ -69,6 +69,34 @@
                   </select>
               </div>
 
+              <div class="form-group">
+                  <label for="exampleInputEmail1">الصلاحيات</label>
+                  <select class="form-control" name="type">
+                    <option value="{{$data->type}}">
+                      @if($data->type == "accountant")
+                        محاسب
+                      @elseif($data->type == "checker")
+                        مدقق
+                      @elseif($data->type == "data_entry")
+                         مدخل بيانات  
+                      @else
+                         جهة امنية او الاستخبارات 
+                      @endif
+                    </option>
+
+
+                    <option  value="accountant">محاسب</option>
+
+                    <option  value="checker"> مدقق</option>
+
+                    <option  value="data_entry"> مدخل بيانات</option>
+
+                    <option  value="police"> جهة امنية او الاستخبارات</option>
+
+
+                  </select>
+                </div>
+
               </div>
               <!-- /.card-body -->
 

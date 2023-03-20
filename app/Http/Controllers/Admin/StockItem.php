@@ -10,12 +10,12 @@ class StockItem extends Controller{
     
     function index(){
         $stock = Stock::all();
-        return view("backend.admin.stockitem.create",compact('stock'));
+        return view("backend.".Auth::user()->user.".stockitem.create",compact('stock'));
     }
 
     function show(){
         $stockitem = StockItems::with('stock')->get();
-        return view("backend.admin.stockitem.show",compact(['stockitem']));
+        return view("backend.".Auth::user()->user.".stockitem.show",compact(['stockitem']));
     }
 
     function save(Request $res){
@@ -32,7 +32,7 @@ class StockItem extends Controller{
     function view($id){
         $data = StockItems::with('stock')->findOrFail($id);
         $stock = Stock::all();
-        return view("backend.admin.stockitem.edit",compact('data','stock'));
+        return view("backend.".Auth::user()->user.".stockitem.edit",compact('data','stock'));
     }
 
     function edit($id,Request $res){

@@ -42,7 +42,7 @@ class Cus extends Controller{
         $card     = Card::all();
         $package  = Package::all();
 
-        return view("backend.admin.cus.chose",compact(['union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->user.".cus.chose",compact(['union','gov','guildsub','guild','package','card']));
     
     }
 
@@ -58,7 +58,7 @@ class Cus extends Controller{
         $package  = Package::all();
         $card = $card1->merge($card2);
         
-        return view("backend.admin.cus.create_org",compact(['union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->user.".cus.create_org",compact(['union','gov','guildsub','guild','package','card']));
     
     }
 
@@ -74,7 +74,7 @@ class Cus extends Controller{
         $package   = Package::all();
         $card = $card1->merge($card2);
         
-        return view("backend.admin.cus.create_guild",compact(['union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->user.".cus.create_guild",compact(['union','gov','guildsub','guild','package','card']));
     
     }
     
@@ -90,7 +90,7 @@ class Cus extends Controller{
             })->get();
 
     
-            return view('backend.admin.cus.show',compact(['cus']));
+            return view('backend.'.Auth::user()->user.'.cus.show',compact(['cus']));
 
            
         }catch (\Throwable $th) {
@@ -114,7 +114,7 @@ class Cus extends Controller{
             })->paginate(9);
 
     
-            return view('backend.admin.cus.gridview',compact(['cus']));
+            return view('backend.'.Auth::user()->user.'.cus.gridview',compact(['cus']));
 
            
         }catch (\Throwable $th) {
@@ -210,7 +210,7 @@ class Cus extends Controller{
         $card     = Card::all();
         $package  = Package::all();
         
-        return view("backend.admin.cus.edit",compact(['data','union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->user.".cus.edit",compact(['data','union','gov','guildsub','guild','package','card']));
     
     }
 
@@ -253,6 +253,15 @@ class Cus extends Controller{
     }
 
 
+    function del_imgs($id){
+        $img =CustomerImgs::findOrFail($id);
+        $cus_id = $img->cus_id;
+        $img->delete();
+        return redirect()->route('cus-single',$cus_id);
+    
+    }
+
+
 
 
     function cus_single($id){
@@ -269,7 +278,7 @@ class Cus extends Controller{
             }
         }
         $ques = $this->question();
-        return view('backend.admin.cus.single',compact('cus','ques','ans'));
+        return view('backend.'.Auth::user()->user.'.cus.single',compact('cus','ques','ans'));
     }
 
 

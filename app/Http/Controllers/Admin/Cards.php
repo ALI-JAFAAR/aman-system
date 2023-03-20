@@ -11,7 +11,7 @@ class Cards extends Controller{
 
     function index(){
     
-        return view("backend.admin.card.create");
+        return view("backend.".Auth::user()->user.".card.create");
     
     }
 
@@ -19,7 +19,7 @@ class Cards extends Controller{
         
         $card = Card::all();
         
-        return view("backend.admin.card.show",compact(['card']));
+        return view("backend.".Auth::user()->user.".card.show",compact(['card']));
     
     }
 
@@ -38,7 +38,7 @@ class Cards extends Controller{
        
         $data = Card::where('id',$id)->first();
     
-        return view("backend.admin.card.edit",compact(['data']));
+        return view("backend.".Auth::user()->user.".card.edit",compact(['data']));
     
     }
 

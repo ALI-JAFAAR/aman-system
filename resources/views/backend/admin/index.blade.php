@@ -78,7 +78,7 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>{{$damage}}</h3>
+                <h3>{{$damage ?? ''}}</h3>
                 <p>عدد البلانكات التالفة</p>
               </div>
               <div class="icon">
@@ -128,7 +128,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner" style="color:#fff">
-                <h3>{{$emp}}</h3>
+                <h3>{{$emp ?? ''}}</h3>
                 <p>الموظفين</p>
               </div>
               <div class="icon">
@@ -144,7 +144,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$emp}}00000</h3>
+                <h3>{{$emp ?? ''}}00000</h3>
 
                 <p>الديون</p>
               </div>

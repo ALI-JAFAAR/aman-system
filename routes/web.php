@@ -20,8 +20,6 @@ Route::group(['middleware' => 'auth:web'],function(){
     // Main Routes
     
     ################################################################################################
-        
-        Route::get('/'             ,'MainController@index')->name('index'); 
 
         Route::get('/logout'       ,'MainController@logout')->name('logout');
     

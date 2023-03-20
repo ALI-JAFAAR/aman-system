@@ -13,7 +13,7 @@ class Records extends Controller{
 
     function index(){
         $cus = Customer::all();
-        return view("backend.admin.record.index",compact(['cus']));
+        return view("backend.".Auth::user()->user.".record.index",compact(['cus']));
     
     }
 
@@ -21,7 +21,7 @@ class Records extends Controller{
         
         $cus = Customer::where('id',$id)->first();
         
-        return view("backend.admin.record.show",compact(['cus']));
+        return view("backend.".Auth::user()->user.".record.show",compact(['cus']));
     
     }
 }

@@ -11,12 +11,12 @@ class Stocks extends Controller{
     
 
     function index(){
-        return view("backend.admin.stock.create");
+        return view("backend.".Auth::user()->user.".stock.create");
     }
 
     function show(){
         $stock = Stock::all();
-        return view("backend.admin.stock.show",compact(['stock']));
+        return view("backend.".Auth::user()->user.".stock.show",compact(['stock']));
     }
 
     function save(Request $res){
@@ -31,7 +31,7 @@ class Stocks extends Controller{
 
     function view($id){
         $data = Stock::findOrFail($id);
-        return view("backend.admin.stock.edit",compact('data'));
+        return view("backend.".Auth::user()->user.".stock.edit",compact('data'));
     }
 
     function edit($id,Request $res){

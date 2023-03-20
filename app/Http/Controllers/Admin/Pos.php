@@ -10,7 +10,7 @@ class Pos extends Controller{
     
     function index(){
 
-        return view("backend.admin.users.pos.create");
+        return view("backend.".Auth::user()->user.".users.pos.create");
     
     }
 
@@ -18,7 +18,7 @@ class Pos extends Controller{
         
         $pos = PosUser::all();
         
-        return view("backend.admin.users.pos.show",compact(['pos']));
+        return view("backend.".Auth::user()->user.".users.pos.show",compact(['pos']));
     
     }
 
@@ -37,7 +37,7 @@ class Pos extends Controller{
        
         $data = PosUser::where('id',$id)->first();
     
-        return view("backend.admin.users.pos.edit",compact(['data']));
+        return view("backend.".Auth::user()->user.".users.pos.edit",compact(['data']));
     
     }
 

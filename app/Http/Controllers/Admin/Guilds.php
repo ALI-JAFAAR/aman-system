@@ -13,7 +13,7 @@ class Guilds extends Controller{
     function index(){
 
         $union = Union::all();
-        return view("backend.admin.guild.create",compact('union'));
+        return view("backend.".Auth::user()->user.".guild.create",compact('union'));
     
     }
 
@@ -21,7 +21,7 @@ class Guilds extends Controller{
         
         $guild = Guild::with('union')->get();
         
-        return view("backend.admin.guild.show",compact(['guild']));
+        return view("backend.".Auth::user()->user.".guild.show",compact(['guild']));
     
     }
 
@@ -42,7 +42,7 @@ class Guilds extends Controller{
        
         $data = Guild::where('id',$id)->with('union')->first();
         $union = Union::all();
-        return view("backend.admin.guild.edit",compact('data','union'));
+        return view("backend.".Auth::user()->user.".guild.edit",compact('data','union'));
     
     }
 

@@ -13,7 +13,7 @@ class Gov extends Controller{
     function index(){
         // $tr = new GoogleTranslate('en');
         // $tr->translate('');
-        return view("backend.admin.gov.create");
+        return view("backend.".Auth::user()->user.".gov.create");
     
     }
 
@@ -21,7 +21,7 @@ class Gov extends Controller{
         
         $gov = Governorate::all();
         
-        return view("backend.admin.gov.show",compact(['gov']));
+        return view("backend.".Auth::user()->user.".gov.show",compact(['gov']));
     
     }
 
@@ -39,7 +39,7 @@ class Gov extends Controller{
        
         $data = Governorate::where('id',$id)->first();
     
-        return view("backend.admin.gov.edit",compact(['data']));
+        return view("backend.".Auth::user()->user.".gov.edit",compact(['data']));
     
     }
 

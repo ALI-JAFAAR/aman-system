@@ -10,12 +10,12 @@ class CardStocks extends Controller{
     
     function index(){
         $card = Card::all();
-        return view("backend.admin.blanks.create",compact('card'));
+        return view("backend.".Auth::user()->user.".blanks.create",compact('card'));
     }
 
     function show(){
         $cardstock = CardStock::with('card')->get();
-        return view("backend.admin.blanks.show",compact(['cardstock']));
+        return view("backend.".Auth::user()->user.".blanks.show",compact(['cardstock']));
     }
 
     function save(Request $res){
@@ -31,7 +31,7 @@ class CardStocks extends Controller{
     function view($id){
         $data = CardStock::with('card')->findOrFail($id);
         $card = Card::all();
-        return view("backend.admin.blanks.edit",compact('data','card'));
+        return view("backend.".Auth::user()->user.".blanks.edit",compact('data','card'));
     }
 
     function edit($id,Request $res){

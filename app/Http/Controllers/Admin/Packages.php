@@ -12,7 +12,7 @@ class Packages extends Controller{
     function index(){
 
 
-        return view("backend.admin.package.create");
+        return view("backend.".Auth::user()->user.".package.create");
     
     }
 
@@ -20,7 +20,7 @@ class Packages extends Controller{
         
         $package = Package::all();
         
-        return view("backend.admin.package.show",compact(['package']));
+        return view("backend.".Auth::user()->user.".package.show",compact(['package']));
     
     }
 
@@ -39,7 +39,7 @@ class Packages extends Controller{
     function view($id){
        
         $data = Package::where('id',$id)->first();
-        return view("backend.admin.package.edit",compact('data'));
+        return view("backend.".Auth::user()->user.".package.edit",compact('data'));
     
     }
 

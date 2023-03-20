@@ -15,7 +15,7 @@
     <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('index')}}" class="brand-link">
+    <a href="{{route('index-'.Auth::user()->type)}}" class="brand-link">
       <img src="{{asset('logo-w.png')}}"class="brand-image img-circle elevation-3"
            style="opacity: 0.8" width="45px">
       <span class="brand-text font-weight-light">المنصة الالكترونية أمان</span>
@@ -31,7 +31,7 @@
           
 
           {{-- ADMIN NAV --}}
-          @include('include.admin.nav')
+          @include('include.'.Auth::user()->type.'.nav')
           {{-- END ADMIN NAV --}}
 
 
@@ -43,8 +43,7 @@
                 تسجيل الخروج
               </p>
             </a>
-          </li>
-
+          </li> 
 
         </ul>
       </nav>

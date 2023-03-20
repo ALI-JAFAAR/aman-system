@@ -16,7 +16,7 @@ class GuildSubs extends Controller{
         $activity = Activity::all();
         $guild    = Guild::all();
 
-        return view("backend.admin.guild_sub.create",compact('activity','guild'));
+        return view("backend.".Auth::user()->user.".guild_sub.create",compact('activity','guild'));
     
     }
 
@@ -24,7 +24,7 @@ class GuildSubs extends Controller{
         
         $guildsub = GuildSub::with('guild')->get();
         
-        return view("backend.admin.guild_sub.show",compact(['guildsub']));
+        return view("backend.".Auth::user()->user.".guild_sub.show",compact(['guildsub']));
     
     }
 
@@ -50,7 +50,7 @@ class GuildSubs extends Controller{
         $activity = Activity::all();
         $guild    = Guild::all();
 
-        return view("backend.admin.guild_sub.edit",compact('data','activity','guild'));
+        return view("backend.".Auth::user()->user.".guild_sub.edit",compact('data','activity','guild'));
     
     }
 

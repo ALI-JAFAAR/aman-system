@@ -84,6 +84,28 @@
 	                </select>
 	            </div>
 
+	            <div class="form-group">
+	                <label for="exampleInputEmail1">الصلاحيات</label>
+	                <select class="form-control" name="type">
+	                	<option {{$data->type}}>
+	                		@if($data->type == "guild")
+								رئيس نقابة او موظف نقابة	                			
+	                		@elseif($data->type == "union")
+	                			رئيس اتحاد  او موظف اتحاد
+	                		@else
+	                			تاجر
+	                		@endif
+	                	</option>
+
+	                	<option  value="guild">رئيس نقابة او موظف نقابة</option>
+
+	                	<option  value="union">رئيس اتحاد  او موظف اتحاد</option>
+
+	                	<option  value="merchant">تاجر</option>
+
+	                </select>
+	              </div>
+
 	            <div class="card-footer">
 	            	<br>
 	            	<button type="submit" class="btn btn-primary btn-lg btn-block">حفظ</button>

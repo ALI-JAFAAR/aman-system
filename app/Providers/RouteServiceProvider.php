@@ -5,8 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
-class RouteServiceProvider extends ServiceProvider
-{
+class RouteServiceProvider extends ServiceProvider{
     /**
      * This namespace is applied to your controller routes.
      *
@@ -28,8 +27,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot(){
         //
 
         parent::boot();
@@ -40,13 +38,33 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function map()
-    {
+    public function map(){
+
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
 
+
+
+        // Custome routes start from here
+
         $this->mapAdminRoutes();
+
+        $this->mapAccountantRoutes();
+
+        $this->mapCheckerRoutes();
+
+        $this->mapData_entryRoutes();
+
+        $this->mapGuildRoutes();
+
+        $this->mapHrRoutes();
+
+        $this->mapMerchantRoutes();
+
+        $this->mapPoliceRoutes();
+
+        $this->mapUnionRoutes();
     }
 
     /**
@@ -56,8 +74,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes()
-    {
+    protected function mapWebRoutes(){
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
@@ -73,8 +90,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapApiRoutes()
-    {
+    protected function mapApiRoutes(){
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->namespace)
@@ -84,16 +100,61 @@ class RouteServiceProvider extends ServiceProvider
 
 
 
+    // Custome routes start from here
 
 
-
-    protected function mapAdminRoutes()
-    {
+    protected function mapAdminRoutes(){
         Route::middleware('web')
             ->namespace($this->namespace)
-            ->group(base_path('routes/admin.php'));
+            ->group(base_path('routes/admin/admin.php'));
     }
 
+    protected function mapAccountantRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/accountant/accountant.php'));
+    }
 
+    protected function mapCheckerRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/checker/checker.php'));
+    }
+
+    protected function mapData_entryRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/data_entry/data_entry.php'));
+    }
+
+    protected function mapGuildRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/guild/guild.php'));
+    }
+
+    protected function mapHrRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/hr/hr.php'));
+    }
+
+    protected function mapMerchantRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/merchant/merchant.php'));
+    }
+
+    protected function mapPoliceRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/police/police.php'));
+    }
+
+    protected function mapUnionRoutes(){
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/union/union.php'));
+    }
 
 }

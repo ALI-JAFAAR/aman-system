@@ -71,6 +71,23 @@
 
 	             
 	             <div class="form-group">
+	                <label for="exampleInputEmail1">الصلاحيات</label>
+	                <select class="form-control" name="type">
+	                	<option></option>
+
+	                	<option  value="accountant">محاسب</option>
+
+	                	<option  value="checker"> مدقق</option>
+
+	                	<option  value="data_entry"> مدخل بيانات</option>
+
+	                	<option  value="police"> جهة امنية او الاستخبارات</option>
+
+	                </select>
+	              </div>
+
+
+	             <div class="form-group">
 	                <label for="exampleInputEmail1">حالة الحساب</label>
 	                <select class="form-control" name="active">
 	                	<option value="0">معطل</option>
