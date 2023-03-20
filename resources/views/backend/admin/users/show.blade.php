@@ -56,8 +56,8 @@
                         <td>{{$row->position === '0' ?"Admin":$row->position}}</td>
                         <td>{{$row->guild_id != 0 ? $row->guild->name:''}}</td>
                         <td>
-                          <a href="{{route('users-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('users-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.users-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.users-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

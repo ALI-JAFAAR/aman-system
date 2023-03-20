@@ -34,8 +34,8 @@
                         <td>{{$row->id}}</td>
                         <td>{{$row->name}}</td>
                         <td>
-                          <a href="{{route('acitivty-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('acitivty-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.acitivty-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.acitivty-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

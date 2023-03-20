@@ -47,8 +47,8 @@
                         </td>
                         <td>{{$row->union_id !=0?$row->union->name:''}}</td>
                         <td>
-                          <a href="{{route('guild-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('guild-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.guild-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.guild-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

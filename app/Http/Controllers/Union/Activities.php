@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Union;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ class Activities extends Controller{
     
     function index(){
 
-        return view("backend.".Auth::user()->type.".activity.create");
+        return view("backend.".Auth::user()->user.".activity.create");
     
     }
 
@@ -18,7 +18,7 @@ class Activities extends Controller{
         
         $activity = Activity::all();
         
-        return view("backend.".Auth::user()->type.".activity.show",compact(['activity']));
+        return view("backend.".Auth::user()->user.".activity.show",compact(['activity']));
     
     }
 
@@ -34,7 +34,7 @@ class Activities extends Controller{
     function view($id){
        
         $data = Activity::where('id',$id)->first();
-        return view("backend.".Auth::user()->type.".activity.edit",compact('data'));
+        return view("backend.".Auth::user()->user.".activity.edit",compact('data'));
     
     }
 

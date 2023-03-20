@@ -18,7 +18,7 @@
                       <div class="row" style="width: 800px;">
                         <input type="text" name="search">
                         <input type="submit" value="بحث" style="margin-left: 16px;">
-                        <a href="{{route('cus-table')}}" class="btn btn-primary" style="padding-right: 20px;  width:200px;">
+                        <a href="{{route(Auth::user()->type.'.cus-table')}}" class="btn btn-primary" style="padding-right: 20px;  width:200px;">
                           <i class="fas fa-rows"></i> عرض افقي
                         </a>
                       </div>

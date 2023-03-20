@@ -18,7 +18,7 @@
                       <div class="row" style="width: 800px;">
                         <input type="text" name="search">
                         <input type="submit" value="بحث" style="margin-left: 16px;">
-                        <a href="{{route('cus-table')}}" class="btn btn-primary" style="padding-right: 20px;  width:200px;">
+                        <a href="{{route(Auth::user()->type.'.cus-table')}}" class="btn btn-primary" style="padding-right: 20px;  width:200px;">
                           <i class="fas fa-rows"></i> عرض افقي
                         </a>
                       </div>
@@ -59,7 +59,7 @@
                 <div class="card-footer">
                   <div class="text-right">
 
-                    <a href="{{route('cus-single',$row->id)}}" class="btn btn-sm btn-primary">
+                    <a href="{{route(Auth::user()->type.'.cus-single',$row->id)}}" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> عرض التفاصيل
                     </a>
                   </div>

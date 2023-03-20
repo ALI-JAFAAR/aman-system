@@ -6,11 +6,11 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                	<a href="{{route('cus-status-print',$cus->id)}}" type="button" class="btn btn-primary" style="margin-right: 15px;width: 100px;">
+                	<a href="{{route(Auth::user()->type.'.cus-status-print',$cus->id)}}" type="button" class="btn btn-primary" style="margin-right: 15px;width: 100px;">
                     	<i class="fas fa-print"></i> طباعة
                   	</a>
                   	
-                  	<a href="{{route('cus-view',$cus->id)}}" type="button" class="btn btn-warning" style="margin-right: 15px;width: 100px;">
+                  	<a href="{{route(Auth::user()->type.'.cus-view',$cus->id)}}" type="button" class="btn btn-warning" style="margin-right: 15px;width: 100px;">
                     	<i class="fas fa-print"></i> تعديل
                   	</a>
                 </div>

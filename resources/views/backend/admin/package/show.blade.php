@@ -38,8 +38,8 @@
                         <td>{{$row->cost}}</td>
                         <td>{{$row->details}}</td>
                         <td>
-                          <a href="{{route('package-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('package-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.package-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.package-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

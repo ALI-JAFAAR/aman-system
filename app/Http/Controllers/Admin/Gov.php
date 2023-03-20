@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
 use App\Models\Governorate;
-
+use Auth;
 class Gov extends Controller{
     
     function index(){
         // $tr = new GoogleTranslate('en');
         // $tr->translate('');
-        return view("backend.".Auth::user()->user.".gov.create");
+        return view("backend.".Auth::user()->type.".gov.create");
     
     }
 
@@ -21,7 +21,7 @@ class Gov extends Controller{
         
         $gov = Governorate::all();
         
-        return view("backend.".Auth::user()->user.".gov.show",compact(['gov']));
+        return view("backend.".Auth::user()->type.".gov.show",compact(['gov']));
     
     }
 
@@ -31,7 +31,7 @@ class Gov extends Controller{
             'name'    => $res->name,
         ]);
     
-        return redirect()->route('gov-show');
+        return redirect()->route(Auth::user()->type.'.gov-show');
     
     }
 
@@ -39,7 +39,7 @@ class Gov extends Controller{
        
         $data = Governorate::where('id',$id)->first();
     
-        return view("backend.".Auth::user()->user.".gov.edit",compact(['data']));
+        return view("backend.".Auth::user()->type.".gov.edit",compact(['data']));
     
     }
 
@@ -51,7 +51,7 @@ class Gov extends Controller{
             $row->name = $res->name;
         $row->save();
     
-        return redirect()->route('gov-show');
+        return redirect()->route(Auth::user()->type.'.gov-show');
     
     }
 
@@ -61,7 +61,7 @@ class Gov extends Controller{
     
         $row->delete();
     
-        return redirect()->route('gov-show');
+        return redirect()->route(Auth::user()->type.'.gov-show');
     
     }
 

@@ -41,8 +41,8 @@
                         <td>{{$row->start_cost}}</td>
                         <td>{{$row->note}}</td>
                         <td>
-                          <a href="{{route('stock-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('stock-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.stock-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.stock-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

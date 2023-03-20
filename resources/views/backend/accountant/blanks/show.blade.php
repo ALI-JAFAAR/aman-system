@@ -41,8 +41,8 @@
                         <td>{{$row->cost}}</td>
                         <td>{{$row->qty}}</td>
                         <td>
-                          <a href="{{route('cardstock-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('cardstock-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.cardstock-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.cardstock-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

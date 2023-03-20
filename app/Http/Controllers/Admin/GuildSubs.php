@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Guild;
 use App\Models\GuildSub;
-
+use Auth;
 class GuildSubs extends Controller{
     
     function index(){
@@ -16,7 +16,7 @@ class GuildSubs extends Controller{
         $activity = Activity::all();
         $guild    = Guild::all();
 
-        return view("backend.".Auth::user()->user.".guild_sub.create",compact('activity','guild'));
+        return view("backend.".Auth::user()->type.".guild_sub.create",compact('activity','guild'));
     
     }
 
@@ -24,7 +24,7 @@ class GuildSubs extends Controller{
         
         $guildsub = GuildSub::with('guild')->get();
         
-        return view("backend.".Auth::user()->user.".guild_sub.show",compact(['guildsub']));
+        return view("backend.".Auth::user()->type.".guild_sub.show",compact(['guildsub']));
     
     }
 
@@ -39,7 +39,7 @@ class GuildSubs extends Controller{
             ]);
         }
         
-        return redirect()->route('guildsub-show');
+        return redirect()->route(Auth::user()->type.'.guildsub-show');
     
     }
 
@@ -50,7 +50,7 @@ class GuildSubs extends Controller{
         $activity = Activity::all();
         $guild    = Guild::all();
 
-        return view("backend.".Auth::user()->user.".guild_sub.edit",compact('data','activity','guild'));
+        return view("backend.".Auth::user()->type.".guild_sub.edit",compact('data','activity','guild'));
     
     }
 
@@ -69,7 +69,7 @@ class GuildSubs extends Controller{
 
         $row->save();
     
-        return redirect()->route('guildsub-show');
+        return redirect()->route(Auth::user()->type.'.guildsub-show');
     
     }
 
@@ -79,7 +79,7 @@ class GuildSubs extends Controller{
     
         $row->delete();
     
-        return redirect()->route('guildsub-show');
+        return redirect()->route(Auth::user()->type.'.guildsub-show');
     
     }
 

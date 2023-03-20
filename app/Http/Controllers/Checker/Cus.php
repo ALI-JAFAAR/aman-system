@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Checker;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Str;
 use App\Traits\Constants;
-
 use Auth;
-//
 use App\Models\Customer;
 use App\Models\CustomerImgs;
 use App\Models\Union;
@@ -31,10 +29,11 @@ use App\Models\CardPrinted;
 use App\Models\DamagedBlank;
 use DNS2D;
 class Cus extends Controller{
+    
     use Constants;
 
     function index(){
-        
+
         $union    = Union::all();
         $gov      = Governorate::all();
         $guild    = Guild::all();
@@ -42,7 +41,7 @@ class Cus extends Controller{
         $card     = Card::all();
         $package  = Package::all();
 
-        return view("backend.admin.cus.chose",compact(['union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->type.".cus.chose",compact(['union','gov','guildsub','guild','package','card']));
     
     }
 
@@ -58,7 +57,7 @@ class Cus extends Controller{
         $package  = Package::all();
         $card = $card1->merge($card2);
         
-        return view("backend.admin.cus.create_org",compact(['union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->type.".cus.create_org",compact(['union','gov','guildsub','guild','package','card']));
     
     }
 
@@ -74,7 +73,7 @@ class Cus extends Controller{
         $package   = Package::all();
         $card = $card1->merge($card2);
         
-        return view("backend.admin.cus.create_guild",compact(['union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->type.".cus.create_guild",compact(['union','gov','guildsub','guild','package','card']));
     
     }
     
@@ -90,7 +89,7 @@ class Cus extends Controller{
             })->get();
 
     
-            return view('backend.admin.cus.show',compact(['cus']));
+            return view('backend.'.Auth::user()->type.'.cus.show',compact(['cus']));
 
            
         }catch (\Throwable $th) {
@@ -114,7 +113,7 @@ class Cus extends Controller{
             })->paginate(9);
 
     
-            return view('backend.admin.cus.gridview',compact(['cus']));
+            return view('backend.'.Auth::user()->type.'.cus.gridview',compact(['cus']));
 
            
         }catch (\Throwable $th) {
@@ -194,7 +193,7 @@ class Cus extends Controller{
         }
 
     
-        return redirect()->route('cus-table');
+        return redirect()->route(Auth::user()->type.'.cus-table');
     
     }
 
@@ -210,7 +209,7 @@ class Cus extends Controller{
         $card     = Card::all();
         $package  = Package::all();
         
-        return view("backend.admin.cus.edit",compact(['data','union','gov','guildsub','guild','package','card']));
+        return view("backend.".Auth::user()->type.".cus.edit",compact(['data','union','gov','guildsub','guild','package','card']));
     
     }
 
@@ -238,7 +237,7 @@ class Cus extends Controller{
         }
 
     
-        return redirect()->route('cus-table');
+        return redirect()->route(Auth::user()->type.'.cus-table');
     
     }
 
@@ -257,7 +256,7 @@ class Cus extends Controller{
         $img =CustomerImgs::findOrFail($id);
         $cus_id = $img->cus_id;
         $img->delete();
-        return redirect()->route('cus-single',$cus_id);
+        return redirect()->route(Auth::user()->type.'.cus-single',$cus_id);
     
     }
 
@@ -278,7 +277,7 @@ class Cus extends Controller{
             }
         }
         $ques = $this->question();
-        return view('backend.admin.cus.single',compact('cus','ques','ans'));
+        return view('backend.'.Auth::user()->type.'.cus.single',compact('cus','ques','ans'));
     }
 
 

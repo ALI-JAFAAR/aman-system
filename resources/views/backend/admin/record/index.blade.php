@@ -88,7 +88,7 @@
                         </td>
                         <td>{{$row->note}}</td>
                         <td>
-                          <a href="{{route('record-view',$row->id)}}"class="btn btn-warning"> عرض السجل</a>
+                          <a href="{{route(Auth::user()->type.'.record-view',$row->id)}}"class="btn btn-warning"> عرض السجل</a>
                         </td>
                       </tr>
                     @endforeach

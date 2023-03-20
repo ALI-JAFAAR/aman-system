@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 use App\Models\Union;
 use App\User;
 use App\Models\Governorate;
-
+use Auth;
 
 class Unions extends Controller{
 
     function index(){
         $gov  = Governorate::all();
-        return view("backend.".Auth::user()->user.".union.create",compact('gov'));
+        return view("backend.".Auth::user()->type.".union.create",compact('gov'));
     
     }
 
@@ -22,7 +22,7 @@ class Unions extends Controller{
         
         $union = Union::with('gov')->get();
 
-        return view("backend.".Auth::user()->user.".union.show",compact(['union']));
+        return view("backend.".Auth::user()->type.".union.show",compact(['union']));
     
     }
 
@@ -37,7 +37,7 @@ class Unions extends Controller{
             'img'       => 'storage/'.$res->file('img')->store('public/union','public'),
         ]);
     
-        return redirect()->route('union-show');
+        return redirect()->route(Auth::user()->type.'.union-show');
     
     }
 
@@ -45,7 +45,7 @@ class Unions extends Controller{
        
         $data = Union::where('id',$id)->first();
         $gov = Governorate::all();
-        return view("backend.".Auth::user()->user.".union.edit",compact(['data','gov']));
+        return view("backend.".Auth::user()->type.".union.edit",compact(['data','gov']));
     
     }
 
@@ -76,7 +76,7 @@ class Unions extends Controller{
 
         $row->save();
     
-        return redirect()->route('union-show');
+        return redirect()->route(Auth::user()->type.'.union-show');
     
     }
 
@@ -86,7 +86,7 @@ class Unions extends Controller{
     
         $row->delete();
     
-        return redirect()->route('union-show');
+        return redirect()->route(Auth::user()->type.'.union-show');
     
     }
 }

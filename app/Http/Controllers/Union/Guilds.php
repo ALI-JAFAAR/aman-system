@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Union;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Union;
 use App\Models\Guild;
-
+use Auth;
 class Guilds extends Controller{
     
     function index(){
@@ -21,7 +21,7 @@ class Guilds extends Controller{
         
         $guild = Guild::with('union')->get();
         
-        return view("backend.admin.guild.show",compact(['guild']));
+        return view("backend.".Auth::user()->type.".guild.show",compact(['guild']));
     
     }
 
@@ -34,7 +34,7 @@ class Guilds extends Controller{
             'sign'          => 'storage/'.$res->file('sign')->store('public/guild','public'),
         ]);
         
-        return redirect()->route('guild-show');
+        return redirect()->route(Auth::user()->type.'.guild-show');
     
     }
 
@@ -42,7 +42,7 @@ class Guilds extends Controller{
        
         $data = Guild::where('id',$id)->with('union')->first();
         $union = Union::all();
-        return view("backend.admin.guild.edit",compact('data','union'));
+        return view("backend.".Auth::user()->type.".guild.edit",compact('data','union'));
     
     }
 
@@ -67,7 +67,7 @@ class Guilds extends Controller{
 
         $row->save();
     
-        return redirect()->route('guild-show');
+        return redirect()->route(Auth::user()->type.'.guild-show');
     
     }
 
@@ -77,7 +77,7 @@ class Guilds extends Controller{
     
         $row->delete();
     
-        return redirect()->route('guild-show');
+        return redirect()->route(Auth::user()->type.'.guild-show');
     
     }
 

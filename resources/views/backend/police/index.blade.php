@@ -28,7 +28,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$guildcard}}</h3>
+                <h3>{{$guildcard ?? ''}}</h3>
                 <p>عدد الهويات النقابية </p>
               </div>
               <div class="icon">
@@ -43,7 +43,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner" style="color:#fff">
-                <h3>{{$guildcard}}</h3>
+                <h3>{{$guildcard ?? ''}}</h3>
                 <p>عدد الهويات الماستر (ضمان)</p>
               </div>
               <div class="icon">

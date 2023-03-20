@@ -43,8 +43,8 @@
                         <td>{{$row->qty}}</td>
                         <td>{{$row->note}}</td>
                         <td>
-                          <a href="{{route('stockitem-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('stockitem-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.stockitem-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.stockitem-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

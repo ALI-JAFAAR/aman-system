@@ -7,28 +7,28 @@ Route::group(['middleware' => 'auth:web'],function(){
 
 ###################################
 
-    Route::get('polices'             ,'MainController@index_police')->name('index-police');
-    // ADMIN Customer
+    Route::get('police'             ,'MainController@index_police')->name('index-police');
+    // police Customer
 
     #############################################################################################
 
-        Route::get ( 'cus'                  , 'Police\Cus@index'       )->name('cus');
-        Route::get ( 'cus-org/{id}/{id2}'   , 'Police\Cus@create_org'  )->name('cus-org');
-        Route::post( 'cus-org/{id}/{id2}'   , 'Police\Cus@save'        )->name('cus-org-save');
-        Route::get ( 'cus-guild/{id}/{id2}' , 'Police\Cus@create_guild')->name('cus-guild');
-        Route::post( 'cus-guild/{id}/{id2}' , 'Police\Cus@save'        )->name('cus-guild-save');
-        Route::post( 'cus'                  , 'Police\Cus@save'        )->name('cus-save');
-        Route::get ( 'cus-table-show'       , 'Police\Cus@show'        )->name('cus-table');
-        Route::post( 'cus-table-show'       , 'Police\Cus@show'        )->name('cus-table-post');
-        Route::get ( 'cus-grid-show'        , 'Police\Cus@showgrid'    )->name('cus-grid');
-        Route::post( 'cus-grid-show'        , 'Police\Cus@showgrid'    )->name('cus-grid-post');
-        Route::get ( 'cus-view/{id}'        , 'Police\Cus@view'        )->name('cus-view');
-        Route::post( 'cus-view/{id}'        , 'Police\Cus@edit'        )->name('cus-edit');
-        Route::get ( 'cus-del/{id}'         , 'Police\Cus@del'         )->name('cus-del');
-        Route::get ( 'cus-del-imgs/{id}'    , 'Police\Cus@del_imgs'    )->name('cus-del-imgs');
-        Route::get ( 'cus-single/{id}'      , 'Police\Cus@cus_single'  )->name('cus-single');
-        Route::get ( 'cus-print/{id}'       , 'Police\Cus@print'        )->name('cus-print');
-        Route::get ( 'cus-status-print/{id}', 'Police\Cus@change_status_print'    )->name('cus-status-print');
+        Route::get ( 'police-cus'                  , 'DataEntry\Cus@index'       )->name('police.cus');
+        Route::get ( 'police-cus-org/{id}/{id2}'   , 'DataEntry\Cus@create_org'  )->name('police.cus-org');
+        Route::post( 'police-cus-org/{id}/{id2}'   , 'DataEntry\Cus@save'        )->name('police.cus-org-save');
+        Route::get ( 'police-cus-guild/{id}/{id2}' , 'DataEntry\Cus@create_guild')->name('police.cus-guild');
+        Route::post( 'police-cus-guild/{id}/{id2}' , 'DataEntry\Cus@save'        )->name('police.cus-guild-save');
+        Route::post( 'police-cus'                  , 'DataEntry\Cus@save'        )->name('police.cus-save');
+        Route::get ( 'police-cus-table-show'       , 'DataEntry\Cus@show'        )->name('police.cus-table');
+        Route::post( 'police-cus-table-show'       , 'DataEntry\Cus@show'        )->name('police.cus-table-post');
+        Route::get ( 'police-cus-grid-show'        , 'DataEntry\Cus@showgrid'    )->name('police.cus-grid');
+        Route::post( 'police-cus-grid-show'        , 'DataEntry\Cus@showgrid'    )->name('police.cus-grid-post');
+        Route::get ( 'police-cus-view/{id}'        , 'DataEntry\Cus@view'        )->name('police.cus-view');
+        Route::post( 'police-cus-view/{id}'        , 'DataEntry\Cus@edit'        )->name('police.cus-edit');
+        Route::get ( 'police-cus-del/{id}'         , 'DataEntry\Cus@del'         )->name('police.cus-del');
+        Route::get ( 'police-cus-del-imgs/{id}'    , 'DataEntry\Cus@del_imgs'    )->name('police.cus-del-imgs');
+        Route::get ( 'police-cus-single/{id}'      , 'DataEntry\Cus@cus_single'  )->name('police.cus-single');
+        Route::get ( 'police-cus-print/{id}'      , 'DataEntry\Cus@print'        )->name('police.cus-print');
+        Route::get ( 'police-cus-status-print/{id}', 'DataEntry\Cus@change_status_print'    )->name('police.cus-status-print');
     
     #############################################################################################
 

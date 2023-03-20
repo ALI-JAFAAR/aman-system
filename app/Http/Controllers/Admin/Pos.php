@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PosUser;
-
+use Auth;
 class Pos extends Controller{
     
     function index(){
 
-        return view("backend.".Auth::user()->user.".users.pos.create");
+        return view("backend.".Auth::user()->type.".users.pos.create");
     
     }
 
@@ -18,7 +18,7 @@ class Pos extends Controller{
         
         $pos = PosUser::all();
         
-        return view("backend.".Auth::user()->user.".users.pos.show",compact(['pos']));
+        return view("backend.".Auth::user()->type.".users.pos.show",compact(['pos']));
     
     }
 
@@ -29,7 +29,7 @@ class Pos extends Controller{
             'position'   => $res->position,
         ]);
     
-        return redirect()->route('pos-show');
+        return redirect()->route(Auth::user()->type.'.pos-show');
     
     }
 
@@ -37,7 +37,7 @@ class Pos extends Controller{
        
         $data = PosUser::where('id',$id)->first();
     
-        return view("backend.".Auth::user()->user.".users.pos.edit",compact(['data']));
+        return view("backend.".Auth::user()->type.".users.pos.edit",compact(['data']));
     
     }
 
@@ -58,7 +58,7 @@ class Pos extends Controller{
             $row->img = 'storage/'.$res->file('img')->store('public/page','public');
         $row->save();
     
-        return redirect()->route('pos-show');
+        return redirect()->route(Auth::user()->type.'.pos-show');
     
     }
 
@@ -68,7 +68,7 @@ class Pos extends Controller{
     
         $row->delete();
     
-        return redirect()->route('pos-show');
+        return redirect()->route(Auth::user()->type.'.pos-show');
     
     }
 

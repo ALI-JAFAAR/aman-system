@@ -1,5 +1,4 @@
 {{-- ADMIN --}}
-
           {{-- USERS --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -11,39 +10,39 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('users')}}" class="nav-link">
+                <a href="{{route("admin.users")}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة مستخدم</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('users-show')}}" class="nav-link">
+                <a href="{{route('admin.users-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض المستخدمين</p>
                 </a>
               </li>
               <hr>
               <li class="nav-item">
-                <a href="{{route('employee')}}" class="nav-link">
+                <a href="{{route('admin.employee')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة موظفين</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('employee-show')}}" class="nav-link">
+                <a href="{{route('admin.employee-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض الموظفين</p>
                 </a>
               </li>
               <hr>
               <li class="nav-item">
-                <a href="{{route('pos')}}" class="nav-link">
+                <a href="{{route('admin.pos')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة منصب </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('pos-show')}}" class="nav-link">
+                <a href="{{route('admin.pos-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض المناصب</p>
                 </a>
@@ -64,13 +63,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('union')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.union')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة جهة</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('union-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.union-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض الجهات</p>
                 </a>
@@ -91,13 +90,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('acitivty')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.acitivty')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة نشاط</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('acitivty-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.acitivty-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض النشاطات</p>
                 </a>
@@ -118,26 +117,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('guild')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.guild')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة فرع</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('guild-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.guild-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض الفروع</p>
                 </a>
               </li>
               <hr>
               <li class="nav-item">
-                <a href="{{route('guildsub')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.guildsub')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة مهنة نقابة</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('guildsub-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.guildsub-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض المهن النقابية</p>
                 </a>
@@ -161,13 +160,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('gov')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.gov')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة محافظة</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('gov-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.gov-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض المحافظات</p>
                 </a>
@@ -188,13 +187,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('partner')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.partner')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة شريك</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('partner-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.partner-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض الشركاء</p>
                 </a>
@@ -219,21 +218,21 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('stock')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.stock')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة مخزن عام</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{route('stock-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.stock-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض المخزن العام</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{route('stockitem')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة  مشتريات</p>
                 </a>
@@ -241,21 +240,21 @@
 
 
               <li class="nav-item">
-                <a href="{{route('stockitem-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.stockitem-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض  المشتريات</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{route('cardstock')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.cardstock')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة الهويات (بلانكات)</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{route('cardstock-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.cardstock-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض مخزن البلانكات</p>
                 </a>
@@ -286,13 +285,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('cus')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.cus')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة منتسب </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('cus-grid')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.cus-grid')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض جميع المنتسبين</p>
                 </a>
@@ -319,13 +318,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('card')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.card')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة نوع هوية</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('card-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.card-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض الهويات</p>
                 </a>
@@ -345,13 +344,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('package')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.package')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة باقة</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('package-show')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.package-show')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>عرض الباقات</p>
                 </a>
@@ -380,7 +379,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('record')}}" class="nav-link">
+                <a href="{{route(Auth::user()->type.'.record')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> السجل العام</p>
                 </a>

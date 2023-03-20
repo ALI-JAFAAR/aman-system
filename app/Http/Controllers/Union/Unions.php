@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Union;
 
 use App\Http\Controllers\Controller;
 
@@ -8,14 +8,13 @@ use Illuminate\Http\Request;
 use App\Models\Union;
 use App\User;
 use App\Models\Governorate;
-
+use Auth;
 
 class Unions extends Controller{
 
     function index(){
         $gov  = Governorate::all();
-        // $user = User::where('union_id','!=',null)->get();
-        return view("backend.admin.union.create",compact('gov'));
+        return view("backend.".Auth::user()->type.".union.create",compact('gov'));
     
     }
 
@@ -23,7 +22,7 @@ class Unions extends Controller{
         
         $union = Union::with('gov')->get();
 
-        return view("backend.admin.union.show",compact(['union']));
+        return view("backend.".Auth::user()->type.".union.show",compact(['union']));
     
     }
 
@@ -34,11 +33,11 @@ class Unions extends Controller{
             'cost_persent'    => $res->cost_persent,
             'cost'    => $res->cost,
             'gov_id' => $res->gov_id,
-            // 'sign'    => 'storage/'.$res->file('sign')->store('public/union','public'),
-            // 'img'       => 'storage/'.$res->file('img')->store('public/union','public'),
+            'sign'    => 'storage/'.$res->file('sign')->store('public/union','public'),
+            'img'       => 'storage/'.$res->file('img')->store('public/union','public'),
         ]);
     
-        return redirect()->route('union-show');
+        return redirect()->route(Auth::user()->type.'.union-show');
     
     }
 
@@ -46,7 +45,7 @@ class Unions extends Controller{
        
         $data = Union::where('id',$id)->first();
         $gov = Governorate::all();
-        return view("backend.admin.union.edit",compact(['data','gov']));
+        return view("backend.".Auth::user()->type.".union.edit",compact(['data','gov']));
     
     }
 
@@ -77,7 +76,7 @@ class Unions extends Controller{
 
         $row->save();
     
-        return redirect()->route('union-show');
+        return redirect()->route(Auth::user()->type.'.union-show');
     
     }
 
@@ -87,7 +86,7 @@ class Unions extends Controller{
     
         $row->delete();
     
-        return redirect()->route('union-show');
+        return redirect()->route(Auth::user()->type.'.union-show');
     
     }
 }

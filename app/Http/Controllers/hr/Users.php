@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Hr;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,13 +10,14 @@ use App\Models\PosUser;
 use App\Models\Union;
 use App\Models\Guild;
 use App\ImgUser;
+use Auth;
 class Users extends Controller{
     
     function index(){
         $pos = PosUser::all();
         $union = Union::all();
         $guild = Guild::all();
-        return view("backend.".Auth::user()->user.".users.create",compact('pos','union','guild'));
+        return view("backend.".Auth::user()->type.".users.create",compact('pos','union','guild'));
     
     }
 
@@ -25,7 +26,7 @@ class Users extends Controller{
         $users = User::where('org_id','!=',1)->with('union','guild')->get();
         
         // dd($users);
-        return view("backend.".Auth::user()->user.".users.show",compact(['users']));
+        return view("backend.".Auth::user()->type.".users.show",compact(['users']));
     
     }
 
@@ -47,7 +48,7 @@ class Users extends Controller{
             'password_show' => $password_show,
         ]);
         
-        return redirect()->route('users-show');
+        return redirect()->route(Auth::user()->type.'.users-show');
     
     }
 
@@ -57,7 +58,7 @@ class Users extends Controller{
         $pos = PosUser::all();
         $union = Union::all();
         $guild = Guild::all();
-        return view("backend.".Auth::user()->user.".users.edit",compact('data','pos','union','guild'));
+        return view("backend.".Auth::user()->type.".users.edit",compact('data','pos','union','guild'));
     
     }
 
@@ -101,7 +102,7 @@ class Users extends Controller{
     
         $row->delete();
     
-        return redirect()->route('users-show');
+        return redirect()->route(Auth::user()->type.'.users-show');
     
     }
 
@@ -115,7 +116,7 @@ class Users extends Controller{
 
     function pos_index(){
     
-        return view("backend.".Auth::user()->user.".users.pos.create");
+        return view("backend.".Auth::user()->type.".users.pos.create");
     
     }
 
@@ -123,7 +124,7 @@ class Users extends Controller{
         
         $pos = PosUser::all();
         
-        return view("backend.".Auth::user()->user.".users.pos.show",compact(['pos']));
+        return view("backend.".Auth::user()->type.".users.pos.show",compact(['pos']));
     
     }
 
@@ -141,7 +142,7 @@ class Users extends Controller{
        
         $data = PosUser::where('id',$id)->first();
     
-        return view("backend.".Auth::user()->user.".users.pos.edit",compact(['data']));
+        return view("backend.".Auth::user()->type.".users.pos.edit",compact(['data']));
     
     }
 
@@ -153,7 +154,7 @@ class Users extends Controller{
             $row->position = $res->position;
         $row->save();
     
-        return redirect()->route('pos-show');
+        return redirect()->route(Auth::user()->type.'.pos-show');
     
     }
 
@@ -163,7 +164,7 @@ class Users extends Controller{
     
         $row->delete();
     
-        return redirect()->route('pos-show');
+        return redirect()->route(Auth::user()->type.'.pos-show');
     
     }
 
@@ -182,13 +183,13 @@ class Users extends Controller{
 
     function employee_index(){
         $pos = PosUser::all();
-        return view("backend.".Auth::user()->user.".employee.create",compact('pos'));
+        return view("backend.".Auth::user()->type.".employee.create",compact('pos'));
     }
 
     function employee_show(){
         $employee = User::where('org_id',1)->with('imgs')->get();
         
-        return view("backend.".Auth::user()->user.".employee.show",compact(['employee']));
+        return view("backend.".Auth::user()->type.".employee.show",compact(['employee']));
     
     }
 
@@ -219,7 +220,7 @@ class Users extends Controller{
             }
         }
 
-        return redirect()->route('employee-show');
+        return redirect()->route(Auth::user()->type.'.employee-show');
     
     }
 
@@ -227,7 +228,7 @@ class Users extends Controller{
        
         $data = User::findOrFail($id);
         $pos = PosUser::all();
-        return view("backend.".Auth::user()->user.".employee.edit",compact('data','pos'));
+        return view("backend.".Auth::user()->type.".employee.edit",compact('data','pos'));
     
     }
 
@@ -241,14 +242,14 @@ class Users extends Controller{
             $row->password_show = $res->password;
         }
         $row->save();
-        return redirect()->route('employee-show');
+        return redirect()->route(Auth::user()->type.'.employee-show');
     
     }
 
     function employee_del($id){
         User::findOrFail($id)->delete();
         $img =ImgUser::where('user_id',$id)->delete();
-        return redirect()->route('employee-show');
+        return redirect()->route(Auth::user()->type.'.employee-show');
     
     }
 

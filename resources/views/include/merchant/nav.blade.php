@@ -12,13 +12,13 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{route('cus')}}" class="nav-link">
+        <a href="{{route(Auth::user()->type.'.cus')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>اضافة منتسب </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{route('cus-grid')}}" class="nav-link">
+        <a href="{{route(Auth::user()->type.'.cus-grid')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>عرض جميع المنتسبين</p>
         </a>

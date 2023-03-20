@@ -39,8 +39,8 @@
                         <td>{{$row->guild->name}}</td>
                         <td>{{$row->activity}}</td>
                         <td>
-                          <a href="{{route('guildsub-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('guildsub-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.guildsub-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.guildsub-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Package;
-
+use Auth;
 class Packages extends Controller{
     
     function index(){
 
 
-        return view("backend.".Auth::user()->user.".package.create");
+        return view("backend.".Auth::user()->type.".package.create");
     
     }
 
@@ -20,7 +20,7 @@ class Packages extends Controller{
         
         $package = Package::all();
         
-        return view("backend.".Auth::user()->user.".package.show",compact(['package']));
+        return view("backend.".Auth::user()->type.".package.show",compact(['package']));
     
     }
 
@@ -32,14 +32,14 @@ class Packages extends Controller{
             'max_value' => $res->max_value,
         ]);
         
-        return redirect()->route('package-show');
+        return redirect()->route(Auth::user()->type.'.package-show');
     
     }
 
     function view($id){
        
         $data = Package::where('id',$id)->first();
-        return view("backend.".Auth::user()->user.".package.edit",compact('data'));
+        return view("backend.".Auth::user()->type.".package.edit",compact('data'));
     
     }
 
@@ -65,7 +65,7 @@ class Packages extends Controller{
 
         $row->save();
     
-        return redirect()->route('package-show');
+        return redirect()->route(Auth::user()->type.'.package-show');
     
     }
 
@@ -75,7 +75,7 @@ class Packages extends Controller{
     
         $row->delete();
     
-        return redirect()->route('package-show');
+        return redirect()->route(Auth::user()->type.'.package-show');
     
     }
 }

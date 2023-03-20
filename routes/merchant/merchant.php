@@ -7,28 +7,28 @@ Route::group(['middleware' => 'auth:web'],function(){
 
 ###################################
 
-    Route::get('merchants'             ,'MainController@index_merchant')->name('index-merchant');
-    // ADMIN Customer
+    Route::get('merchant'             ,'MainController@index_merchant')->name('index-merchant');
+    // merchant Customer
 
     #############################################################################################
 
-        Route::get ( 'cus'                  , 'Merchant\Cus@index'       )->name('cus');
-        Route::get ( 'cus-org/{id}/{id2}'   , 'Merchant\Cus@create_org'  )->name('cus-org');
-        Route::post( 'cus-org/{id}/{id2}'   , 'Merchant\Cus@save'        )->name('cus-org-save');
-        Route::get ( 'cus-guild/{id}/{id2}' , 'Merchant\Cus@create_guild')->name('cus-guild');
-        Route::post( 'cus-guild/{id}/{id2}' , 'Merchant\Cus@save'        )->name('cus-guild-save');
-        Route::post( 'cus'                  , 'Merchant\Cus@save'        )->name('cus-save');
-        Route::get ( 'cus-table-show'       , 'Merchant\Cus@show'        )->name('cus-table');
-        Route::post( 'cus-table-show'       , 'Merchant\Cus@show'        )->name('cus-table-post');
-        Route::get ( 'cus-grid-show'        , 'Merchant\Cus@showgrid'    )->name('cus-grid');
-        Route::post( 'cus-grid-show'        , 'Merchant\Cus@showgrid'    )->name('cus-grid-post');
-        Route::get ( 'cus-view/{id}'        , 'Merchant\Cus@view'        )->name('cus-view');
-        Route::post( 'cus-view/{id}'        , 'Merchant\Cus@edit'        )->name('cus-edit');
-        Route::get ( 'cus-del/{id}'         , 'Merchant\Cus@del'         )->name('cus-del');
-        Route::get ( 'cus-del-imgs/{id}'    , 'Merchant\Cus@del_imgs'    )->name('cus-del-imgs');
-        Route::get ( 'cus-single/{id}'      , 'Merchant\Cus@cus_single'  )->name('cus-single');
-        Route::get ( 'cus-print/{id}'       , 'Merchant\Cus@print'        )->name('cus-print');
-        Route::get ( 'cus-status-print/{id}', 'Merchant\Cus@change_status_print'    )->name('cus-status-print');
+        Route::get ( 'merchant-cus'                  , 'DataEntry\Cus@index'       )->name('merchant.cus');
+        Route::get ( 'merchant-cus-org/{id}/{id2}'   , 'DataEntry\Cus@create_org'  )->name('merchant.cus-org');
+        Route::post( 'merchant-cus-org/{id}/{id2}'   , 'DataEntry\Cus@save'        )->name('merchant.cus-org-save');
+        Route::get ( 'merchant-cus-guild/{id}/{id2}' , 'DataEntry\Cus@create_guild')->name('merchant.cus-guild');
+        Route::post( 'merchant-cus-guild/{id}/{id2}' , 'DataEntry\Cus@save'        )->name('merchant.cus-guild-save');
+        Route::post( 'merchant-cus'                  , 'DataEntry\Cus@save'        )->name('merchant.cus-save');
+        Route::get ( 'merchant-cus-table-show'       , 'DataEntry\Cus@show'        )->name('merchant.cus-table');
+        Route::post( 'merchant-cus-table-show'       , 'DataEntry\Cus@show'        )->name('merchant.cus-table-post');
+        Route::get ( 'merchant-cus-grid-show'        , 'DataEntry\Cus@showgrid'    )->name('merchant.cus-grid');
+        Route::post( 'merchant-cus-grid-show'        , 'DataEntry\Cus@showgrid'    )->name('merchant.cus-grid-post');
+        Route::get ( 'merchant-cus-view/{id}'        , 'DataEntry\Cus@view'        )->name('merchant.cus-view');
+        Route::post( 'merchant-cus-view/{id}'        , 'DataEntry\Cus@edit'        )->name('merchant.cus-edit'); 
+        Route::get ( 'merchant-cus-del/{id}'         , 'DataEntry\Cus@del'         )->name('merchant.cus-del');
+        Route::get ( 'merchant-cus-del-imgs/{id}'    , 'DataEntry\Cus@del_imgs'    )->name('merchant.cus-del-imgs');
+        Route::get ( 'merchant-cus-single/{id}'      , 'DataEntry\Cus@cus_single'  )->name('merchant.cus-single');
+        Route::get ( 'merchant-cus-print/{id}'      , 'DataEntry\Cus@print'        )->name('merchant.cus-print');
+        Route::get ( 'merchant-cus-status-print/{id}', 'DataEntry\Cus@change_status_print'    )->name('merchant.cus-status-print');
     
     #############################################################################################
 

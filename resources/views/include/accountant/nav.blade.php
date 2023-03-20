@@ -14,21 +14,21 @@
 
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{route('stock')}}" class="nav-link">
+        <a href="{{route('accountant.stock')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>اضافة مخزن عام</p>
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="{{route('stock-show')}}" class="nav-link">
+        <a href="{{route('accountant.stock-show')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>عرض المخزن العام</p>
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="{{route('stockitem')}}" class="nav-link">
+        <a href="{{route('accountant.stockitem')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>اضافة  مشتريات</p>
         </a>
@@ -36,21 +36,21 @@
 
 
       <li class="nav-item">
-        <a href="{{route('stockitem-show')}}" class="nav-link">
+        <a href="{{route('accountant.stockitem-show')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>عرض  المشتريات</p>
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="{{route('cardstock')}}" class="nav-link">
+        <a href="{{route('accountant.cardstock')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>اضافة الهويات (بلانكات)</p>
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="{{route('cardstock-show')}}" class="nav-link">
+        <a href="{{route('accountant.cardstock-show')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>عرض مخزن البلانكات</p>
         </a>
@@ -74,7 +74,7 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{route('record')}}" class="nav-link">
+        <a href="{{route('accountant.record')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p> السجل العام</p>
         </a>

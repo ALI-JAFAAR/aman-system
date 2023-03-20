@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Accountant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StockItems;
 use App\Models\Stock;
+use Auth;
 class StockItem extends Controller{
     
     function index(){
         $stock = Stock::all();
-        return view("backend.admin.stockitem.create",compact('stock'));
+        return view("backend.".Auth::user()->type.".stockitem.create",compact('stock'));
     }
 
     function show(){
         $stockitem = StockItems::with('stock')->get();
-        return view("backend.admin.stockitem.show",compact(['stockitem']));
+        return view("backend.".Auth::user()->type.".stockitem.show",compact(['stockitem']));
     }
 
     function save(Request $res){
@@ -26,24 +27,24 @@ class StockItem extends Controller{
             'qty'      => $res->qty,
             'note'     => $res->note,
         ]);
-        return redirect()->route('stockitem-show');
+        return redirect()->route(Auth::user()->type.'.stockitem-show');
     }
 
     function view($id){
         $data = StockItems::with('stock')->findOrFail($id);
         $stock = Stock::all();
-        return view("backend.admin.stockitem.edit",compact('data','stock'));
+        return view("backend.".Auth::user()->type.".stockitem.edit",compact('data','stock'));
     }
 
     function edit($id,Request $res){
         $row = StockItems::findOrFail($id);
         $attributes = $res->only(['name', 'stock_id','qty', 'cost', 'note']);
         $row->update($attributes);
-        return redirect()->route('stockitem-show');
+        return redirect()->route(Auth::user()->type.'.stockitem-show');
     }
 
     function del($id){
         StockItems::findOrFail($id)->delete();
-        return redirect()->route('stockitem-show');
+        return redirect()->route(Auth::user()->type.'.stockitem-show');
     }
 }

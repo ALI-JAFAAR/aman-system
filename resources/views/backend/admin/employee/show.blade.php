@@ -62,8 +62,8 @@
         	                @endforeach
                         </td>
                         <td>
-                          <a href="{{route('employee-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('employee-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.employee-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.employee-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                         </tr>
                     @endforeach

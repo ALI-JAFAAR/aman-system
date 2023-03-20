@@ -12,12 +12,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'union'           , 'Union\Unions@index')->name('union');
-        Route::post('union'           , 'Union\Unions@save' )->name('union-save');
-        Route::get( 'union-show'      , 'Union\Unions@show' )->name('union-show');
-        Route::get( 'union-view/{id}' , 'Union\Unions@view' )->name('union-view');
-        Route::post('union-view/{id}' , 'Union\Unions@edit' )->name('union-edit');
-        Route::get( 'union-del/{id}'  , 'Union\Unions@del'  )->name('union-del');
+        Route::get( 'union-union'           , 'Union\Unions@index')->name('union.union');
+        Route::post('union-union'           , 'Union\Unions@save' )->name('union.union-save');
+        Route::get( 'union-union-show'      , 'Union\Unions@show' )->name('union.union-show');
+        Route::get( 'union-union-view/{id}' , 'Union\Unions@view' )->name('union.union-view');
+        Route::post('union-union-view/{id}' , 'Union\Unions@edit' )->name('union.union-edit');
+        Route::get( 'union-union-del/{id}'  , 'Union\Unions@del'  )->name('union.union-del');
 
     #############################################################################################
 
@@ -25,12 +25,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'guild'           , 'Union\Guilds@index')->name('guild');
-        Route::post('guild'           , 'Union\Guilds@save' )->name('guild-save');
-        Route::get( 'guild-show'      , 'Union\Guilds@show' )->name('guild-show');
-        Route::get( 'guild-view/{id}' , 'Union\Guilds@view' )->name('guild-view');
-        Route::post('guild-view/{id}' , 'Union\Guilds@edit' )->name('guild-edit');
-        Route::get( 'guild-del/{id}'  , 'Union\Guilds@del'  )->name('guild-del');
+        Route::get( 'union-guild'           , 'Union\Guilds@index')->name('union.guild');
+        Route::post('union-guild'           , 'Union\Guilds@save' )->name('union.guild-save');
+        Route::get( 'union-guild-show'      , 'Union\Guilds@show' )->name('union.guild-show');
+        Route::get( 'union-guild-view/{id}' , 'Union\Guilds@view' )->name('union.guild-view');
+        Route::post('union-guild-view/{id}' , 'Union\Guilds@edit' )->name('union.guild-edit');
+        Route::get( 'union-guild-del/{id}'  , 'Union\Guilds@del'  )->name('union.guild-del');
 
     #############################################################################################
 
@@ -38,12 +38,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'acitivty'           , 'Union\Activities@index')->name('acitivty');
-        Route::post('acitivty'           , 'Union\Activities@save' )->name('acitivty-save');
-        Route::get( 'acitivty-show'      , 'Union\Activities@show' )->name('acitivty-show');
-        Route::get( 'acitivty-view/{id}' , 'Union\Activities@view' )->name('acitivty-view');
-        Route::post('acitivty-view/{id}' , 'Union\Activities@edit' )->name('acitivty-edit');
-        Route::get( 'acitivty-del/{id}'  , 'Union\Activities@del'  )->name('acitivty-del');
+        Route::get( 'union-acitivty'           , 'Union\Activities@index')->name('union.acitivty');
+        Route::post('union-acitivty'           , 'Union\Activities@save' )->name('union.acitivty-save');
+        Route::get( 'union-acitivty-show'      , 'Union\Activities@show' )->name('union.acitivty-show');
+        Route::get( 'union-acitivty-view/{id}' , 'Union\Activities@view' )->name('union.acitivty-view');
+        Route::post('union-acitivty-view/{id}' , 'Union\Activities@edit' )->name('union.acitivty-edit');
+        Route::get( 'union-acitivty-del/{id}'  , 'Union\Activities@del'  )->name('union.acitivty-del');
 
     #############################################################################################
 
@@ -51,12 +51,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'guildsub'           , 'Union\GuildSubs@index')->name('guildsub');
-        Route::post('guildsub'           , 'Union\GuildSubs@save' )->name('guildsub-save');
-        Route::get( 'guildsub-show'      , 'Union\GuildSubs@show' )->name('guildsub-show');
-        Route::get( 'guildsub-view/{id}' , 'Union\GuildSubs@view' )->name('guildsub-view');
-        Route::post('guildsub-view/{id}' , 'Union\GuildSubs@edit' )->name('guildsub-edit');
-        Route::get( 'guildsub-del/{id}'  , 'Union\GuildSubs@del'  )->name('guildsub-del');
+        Route::get( 'union-guildsub'           , 'Union\GuildSubs@index')->name('union.guildsub');
+        Route::post('union-guildsub'           , 'Union\GuildSubs@save' )->name('union.guildsub-save');
+        Route::get( 'union-guildsub-show'      , 'Union\GuildSubs@show' )->name('union.guildsub-show');
+        Route::get( 'union-guildsub-view/{id}' , 'Union\GuildSubs@view' )->name('union.guildsub-view');
+        Route::post('union-guildsub-view/{id}' , 'Union\GuildSubs@edit' )->name('union.guildsub-edit');
+        Route::get( 'union-guildsub-del/{id}'  , 'Union\GuildSubs@del'  )->name('union.guildsub-del');
 
     #############################################################################################
 

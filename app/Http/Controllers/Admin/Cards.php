@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Card;
-
+use Auth;
 class Cards extends Controller{
 
     function index(){
     
-        return view("backend.".Auth::user()->user.".card.create");
+        return view("backend.".Auth::user()->type.".card.create");
     
     }
 
@@ -19,7 +19,7 @@ class Cards extends Controller{
         
         $card = Card::all();
         
-        return view("backend.".Auth::user()->user.".card.show",compact(['card']));
+        return view("backend.".Auth::user()->type.".card.show",compact(['card']));
     
     }
 
@@ -30,7 +30,7 @@ class Cards extends Controller{
             'type'    => $res->type,
         ]);
     
-        return redirect()->route('card-show');
+        return redirect()->route(Auth::user()->type.'.card-show');
     
     }
 
@@ -38,7 +38,7 @@ class Cards extends Controller{
        
         $data = Card::where('id',$id)->first();
     
-        return view("backend.".Auth::user()->user.".card.edit",compact(['data']));
+        return view("backend.".Auth::user()->type.".card.edit",compact(['data']));
     
     }
 
@@ -53,7 +53,7 @@ class Cards extends Controller{
 
         $row->save();
     
-        return redirect()->route('card-show');
+        return redirect()->route(Auth::user()->type.'.card-show');
     
     }
 
@@ -63,7 +63,7 @@ class Cards extends Controller{
     
         $row->delete();
     
-        return redirect()->route('card-show');
+        return redirect()->route(Auth::user()->type.'.card-show');
     
     }
 

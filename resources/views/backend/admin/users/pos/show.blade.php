@@ -34,8 +34,8 @@
                         <td>{{$row->id}}</td>
                         <td>{{$row->position}}</td>
                         <td>
-                          <a href="{{route('pos-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('pos-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.pos-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.pos-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

@@ -48,8 +48,8 @@
                           <img src="{{$row->sign}}" width="50px" height="80">
                         </td>
                         <td>
-                          <a href="{{route('union-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('union-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.union-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.union-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                         </td>
                       </tr>
                     @endforeach

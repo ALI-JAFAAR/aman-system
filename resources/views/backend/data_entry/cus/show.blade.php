@@ -60,13 +60,13 @@
                         <td>{{$row->created_at     ??''}}</td>
                         <td>{{$row->note     ??''}}</td>
                         <td>
-                          <a href="{{route('cus-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
-                          <a href="{{route('cus-del',$row->id)}}" class="btn btn-danger"> حذف</a>
+                          <a href="{{route(Auth::user()->type.'.cus-view',$row->id)}}"class="btn btn-warning"> تعديل</a>
+                          <a href="{{route(Auth::user()->type.'.cus-del',$row->id)}}" class="btn btn-danger"> حذف</a>
                           <br><br>
                           @if($row->status ==0)
-                            <a href="{{route('cus-status-print',$row->id)}}" class="btn btn-success">اتمام التدقيق</a>
+                            <a href="{{route(Auth::user()->type.'.cus-status-print',$row->id)}}" class="btn btn-success">اتمام التدقيق</a>
                           @else
-                            <a href="{{route('cus-print',$row->id)}}" class="btn btn-success">طباعة</a>
+                            <a href="{{route(Auth::user()->type.'.cus-print',$row->id)}}" class="btn btn-success">طباعة</a>
                           @endif
                         </td>
                       </tr>

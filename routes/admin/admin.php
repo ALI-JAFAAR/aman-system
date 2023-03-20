@@ -13,12 +13,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'union'           , 'Admin\Unions@index')->name('union');
-        Route::post('union'           , 'Admin\Unions@save' )->name('union-save');
-        Route::get( 'union-show'      , 'Admin\Unions@show' )->name('union-show');
-        Route::get( 'union-view/{id}' , 'Admin\Unions@view' )->name('union-view');
-        Route::post('union-view/{id}' , 'Admin\Unions@edit' )->name('union-edit');
-        Route::get( 'union-del/{id}'  , 'Admin\Unions@del'  )->name('union-del');
+        Route::get( 'admin-union'           , 'Admin\Unions@index')->name('admin.union');
+        Route::post('admin-union'           , 'Admin\Unions@save' )->name('admin.union-save');
+        Route::get( 'admin-union-show'      , 'Admin\Unions@show' )->name('admin.union-show');
+        Route::get( 'admin-union-view/{id}' , 'Admin\Unions@view' )->name('admin.union-view');
+        Route::post('admin-union-view/{id}' , 'Admin\Unions@edit' )->name('admin.union-edit');
+        Route::get( 'admin-union-del/{id}'  , 'Admin\Unions@del'  )->name('admin.union-del');
 
     #############################################################################################
 
@@ -27,12 +27,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'gov'           , 'Admin\Gov@index')->name('gov');
-        Route::post('gov'           , 'Admin\Gov@save' )->name('gov-save');
-        Route::get( 'gov-show'      , 'Admin\Gov@show' )->name('gov-show');
-        Route::get( 'gov-view/{id}' , 'Admin\Gov@view' )->name('gov-view');
-        Route::post('gov-view/{id}' , 'Admin\Gov@edit' )->name('gov-edit');
-        Route::get( 'gov-del/{id}'  , 'Admin\Gov@del'  )->name('gov-del');
+        Route::get( 'admin-gov'           , 'Admin\Gov@index')->name('admin.gov');
+        Route::post('admin-gov'           , 'Admin\Gov@save' )->name('admin.gov-save');
+        Route::get( 'admin-gov-show'      , 'Admin\Gov@show' )->name('admin.gov-show');
+        Route::get( 'admin-gov-view/{id}' , 'Admin\Gov@view' )->name('admin.gov-view');
+        Route::post('admin-gov-view/{id}' , 'Admin\Gov@edit' )->name('admin.gov-edit');
+        Route::get( 'admin-gov-del/{id}'  , 'Admin\Gov@del'  )->name('admin.gov-del');
 
     #############################################################################################
 
@@ -40,12 +40,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'partner'           , 'Admin\Partner@index')->name('partner');
-        Route::post('partner'           , 'Admin\Partner@save' )->name('partner-save');
-        Route::get( 'partner-show'      , 'Admin\Partner@show' )->name('partner-show');
-        Route::get( 'partner-view/{id}' , 'Admin\Partner@view' )->name('partner-view');
-        Route::post('partner-view/{id}' , 'Admin\Partner@edit' )->name('partner-edit');
-        Route::get( 'partner-del/{id}'  , 'Admin\Partner@del'  )->name('partner-del');
+        Route::get( 'admin-partner'           , 'Admin\Partner@index')->name('admin.partner');
+        Route::post('admin-partner'           , 'Admin\Partner@save' )->name('admin.partner-save');
+        Route::get( 'admin-partner-show'      , 'Admin\Partner@show' )->name('admin.partner-show');
+        Route::get( 'admin-partner-view/{id}' , 'Admin\Partner@view' )->name('admin.partner-view');
+        Route::post('admin-partner-view/{id}' , 'Admin\Partner@edit' )->name('admin.partner-edit');
+        Route::get( 'admin-partner-del/{id}'  , 'Admin\Partner@del'  )->name('admin.partner-del');
 
     #############################################################################################
 
@@ -57,31 +57,31 @@ Route::group(['middleware' => 'auth:web'],function(){
         // UNION OR GUILD
 
 
-        Route::get( 'users'           , 'Admin\Users@index')->name('users');
-        Route::post('users'           , 'Admin\Users@save' )->name('users-save');
-        Route::get( 'users-show'      , 'Admin\Users@show' )->name('users-show');
-        Route::get( 'users-view/{id}' , 'Admin\Users@view' )->name('users-view');
-        Route::post('users-view/{id}' , 'Admin\Users@edit' )->name('users-edit');
-        Route::get( 'users-del/{id}'  , 'Admin\Users@del'  )->name('users-del');
+        Route::get( 'admin-users'           , 'Admin\Users@index')->name('admin.users');
+        Route::post('admin-users'           , 'Admin\Users@save' )->name('admin.users-save');
+        Route::get( 'admin-users-show'      , 'Admin\Users@show' )->name('admin.users-show');
+        Route::get( 'admin-users-view/{id}' , 'Admin\Users@view' )->name('admin.users-view');
+        Route::post('admin-users-view/{id}' , 'Admin\Users@edit' )->name('admin.users-edit');
+        Route::get( 'admin-users-del/{id}'  , 'Admin\Users@del'  )->name('admin.users-del');
 
 
         //POSITIONS
 
-        Route::get( 'pos'           , 'Admin\Users@pos_index')->name('pos');
-        Route::post('pos'           , 'Admin\Users@pos_save' )->name('pos-save');
-        Route::get( 'pos-show'      , 'Admin\Users@pos_show' )->name('pos-show');
-        Route::get( 'pos-view/{id}' , 'Admin\Users@pos_view' )->name('pos-view');
-        Route::post('pos-view/{id}' , 'Admin\Users@pos_edit' )->name('pos-edit');
-        Route::get( 'pos-del/{id}'  , 'Admin\Users@pos_del'  )->name('pos-del');
+        Route::get( 'admin-pos'           , 'Admin\Users@pos_index')->name('admin.pos');
+        Route::post('admin-pos'           , 'Admin\Users@pos_save' )->name('admin.pos-save');
+        Route::get( 'admin-pos-show'      , 'Admin\Users@pos_show' )->name('admin.pos-show');
+        Route::get( 'admin-pos-view/{id}' , 'Admin\Users@pos_view' )->name('admin.pos-view');
+        Route::post('admin-pos-view/{id}' , 'Admin\Users@pos_edit' )->name('admin.pos-edit');
+        Route::get( 'admin-pos-del/{id}'  , 'Admin\Users@pos_del'  )->name('admin.pos-del');
 
         // EMPLOYEE
 
-        Route::get ('employee'           , 'Admin\Users@employee_index')->name('employee');
-        Route::post('employee'           , 'Admin\Users@employee_save' )->name('employee-save');
-        Route::get ('employee-show'      , 'Admin\Users@employee_show' )->name('employee-show');
-        Route::get ('employee-view/{id}' , 'Admin\Users@employee_view' )->name('employee-view');
-        Route::post('employee-view/{id}' , 'Admin\Users@employee_edit' )->name('employee-edit');
-        Route::get ('employee-del/{id}'  , 'Admin\Users@employee_del'  )->name('employee-del');
+        Route::get ('admin-employee'           , 'Admin\Users@employee_index')->name('admin.employee');
+        Route::post('admin-employee'           , 'Admin\Users@employee_save' )->name('admin.employee-save');
+        Route::get ('admin-employee-show'      , 'Admin\Users@employee_show' )->name('admin.employee-show');
+        Route::get ('admin-employee-view/{id}' , 'Admin\Users@employee_view' )->name('admin.employee-view');
+        Route::post('admin-employee-view/{id}' , 'Admin\Users@employee_edit' )->name('admin.employee-edit');
+        Route::get ('admin-employee-del/{id}'  , 'Admin\Users@employee_del'  )->name('admin.employee-del');
 
     #############################################################################################
 
@@ -89,12 +89,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'guild'           , 'Admin\Guilds@index')->name('guild');
-        Route::post('guild'           , 'Admin\Guilds@save' )->name('guild-save');
-        Route::get( 'guild-show'      , 'Admin\Guilds@show' )->name('guild-show');
-        Route::get( 'guild-view/{id}' , 'Admin\Guilds@view' )->name('guild-view');
-        Route::post('guild-view/{id}' , 'Admin\Guilds@edit' )->name('guild-edit');
-        Route::get( 'guild-del/{id}'  , 'Admin\Guilds@del'  )->name('guild-del');
+        Route::get( 'admin-guild'           , 'Admin\Guilds@index')->name('admin.guild');
+        Route::post('admin-guild'           , 'Admin\Guilds@save' )->name('admin.guild-save');
+        Route::get( 'admin-guild-show'      , 'Admin\Guilds@show' )->name('admin.guild-show');
+        Route::get( 'admin-guild-view/{id}' , 'Admin\Guilds@view' )->name('admin.guild-view');
+        Route::post('admin-guild-view/{id}' , 'Admin\Guilds@edit' )->name('admin.guild-edit');
+        Route::get( 'admin-guild-del/{id}'  , 'Admin\Guilds@del'  )->name('admin.guild-del');
 
     #############################################################################################
 
@@ -102,12 +102,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'acitivty'           , 'Admin\Activities@index')->name('acitivty');
-        Route::post('acitivty'           , 'Admin\Activities@save' )->name('acitivty-save');
-        Route::get( 'acitivty-show'      , 'Admin\Activities@show' )->name('acitivty-show');
-        Route::get( 'acitivty-view/{id}' , 'Admin\Activities@view' )->name('acitivty-view');
-        Route::post('acitivty-view/{id}' , 'Admin\Activities@edit' )->name('acitivty-edit');
-        Route::get( 'acitivty-del/{id}'  , 'Admin\Activities@del'  )->name('acitivty-del');
+        Route::get( 'admin-acitivty'           , 'Admin\Activities@index')->name('admin.acitivty');
+        Route::post('admin-acitivty'           , 'Admin\Activities@save' )->name('admin.acitivty-save');
+        Route::get( 'admin-acitivty-show'      , 'Admin\Activities@show' )->name('admin.acitivty-show');
+        Route::get( 'admin-acitivty-view/{id}' , 'Admin\Activities@view' )->name('admin.acitivty-view');
+        Route::post('admin-acitivty-view/{id}' , 'Admin\Activities@edit' )->name('admin.acitivty-edit');
+        Route::get( 'admin-acitivty-del/{id}'  , 'Admin\Activities@del'  )->name('admin.acitivty-del');
 
     #############################################################################################
 
@@ -115,12 +115,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'guildsub'           , 'Admin\GuildSubs@index')->name('guildsub');
-        Route::post('guildsub'           , 'Admin\GuildSubs@save' )->name('guildsub-save');
-        Route::get( 'guildsub-show'      , 'Admin\GuildSubs@show' )->name('guildsub-show');
-        Route::get( 'guildsub-view/{id}' , 'Admin\GuildSubs@view' )->name('guildsub-view');
-        Route::post('guildsub-view/{id}' , 'Admin\GuildSubs@edit' )->name('guildsub-edit');
-        Route::get( 'guildsub-del/{id}'  , 'Admin\GuildSubs@del'  )->name('guildsub-del');
+        Route::get( 'admin-guildsub'           , 'Admin\GuildSubs@index')->name('admin.guildsub');
+        Route::post('admin-guildsub'           , 'Admin\GuildSubs@save' )->name('admin.guildsub-save');
+        Route::get( 'admin-guildsub-show'      , 'Admin\GuildSubs@show' )->name('admin.guildsub-show');
+        Route::get( 'admin-guildsub-view/{id}' , 'Admin\GuildSubs@view' )->name('admin.guildsub-view');
+        Route::post('admin-guildsub-view/{id}' , 'Admin\GuildSubs@edit' )->name('admin.guildsub-edit');
+        Route::get( 'admin-guildsub-del/{id}'  , 'Admin\GuildSubs@del'  )->name('admin.guildsub-del');
 
     #############################################################################################
 
@@ -128,12 +128,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'card'           , 'Admin\Cards@index')->name('card');
-        Route::post('card'           , 'Admin\Cards@save' )->name('card-save');
-        Route::get( 'card-show'      , 'Admin\Cards@show' )->name('card-show');
-        Route::get( 'card-view/{id}' , 'Admin\Cards@view' )->name('card-view');
-        Route::post('card-view/{id}' , 'Admin\Cards@edit' )->name('card-edit');
-        Route::get( 'card-del/{id}'  , 'Admin\Cards@del'  )->name('card-del');
+        Route::get( 'admin-card'           , 'Admin\Cards@index')->name('admin.card');
+        Route::post('admin-card'           , 'Admin\Cards@save' )->name('admin.card-save');
+        Route::get( 'admin-card-show'      , 'Admin\Cards@show' )->name('admin.card-show');
+        Route::get( 'admin-card-view/{id}' , 'Admin\Cards@view' )->name('admin.card-view');
+        Route::post('admin-card-view/{id}' , 'Admin\Cards@edit' )->name('admin.card-edit');
+        Route::get( 'admin-card-del/{id}'  , 'Admin\Cards@del'  )->name('admin.card-del');
 
     #############################################################################################
 
@@ -141,12 +141,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'package'           , 'Admin\Packages@index')->name('package');
-        Route::post('package'           , 'Admin\Packages@save' )->name('package-save');
-        Route::get( 'package-show'      , 'Admin\Packages@show' )->name('package-show');
-        Route::get( 'package-view/{id}' , 'Admin\Packages@view' )->name('package-view');
-        Route::post('package-view/{id}' , 'Admin\Packages@edit' )->name('package-edit');
-        Route::get( 'package-del/{id}'  , 'Admin\Packages@del'  )->name('package-del');
+        Route::get( 'admin-package'           , 'Admin\Packages@index')->name('admin.package');
+        Route::post('admin-package'           , 'Admin\Packages@save' )->name('admin.package-save');
+        Route::get( 'admin-package-show'      , 'Admin\Packages@show' )->name('admin.package-show');
+        Route::get( 'admin-package-view/{id}' , 'Admin\Packages@view' )->name('admin.package-view');
+        Route::post('admin-package-view/{id}' , 'Admin\Packages@edit' )->name('admin.package-edit');
+        Route::get( 'admin-package-del/{id}'  , 'Admin\Packages@del'  )->name('admin.package-del');
 
     #############################################################################################
 
@@ -154,36 +154,24 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get ( 'cus'                  , 'Admin\Cus@index'       )->name('cus');
-        Route::get ( 'cus-org/{id}/{id2}'   , 'Admin\Cus@create_org'  )->name('cus-org');
-        Route::post( 'cus-org/{id}/{id2}'   , 'Admin\Cus@save'        )->name('cus-org-save');
-        Route::get ( 'cus-guild/{id}/{id2}' , 'Admin\Cus@create_guild')->name('cus-guild');
-        Route::post( 'cus-guild/{id}/{id2}' , 'Admin\Cus@save'        )->name('cus-guild-save');
-        
-        Route::post( 'cus'                  , 'Admin\Cus@save'        )->name('cus-save');
-
-        Route::get ( 'cus-table-show'       , 'Admin\Cus@show'        )->name('cus-table');
-        Route::post( 'cus-table-show'       , 'Admin\Cus@show'        )->name('cus-table-post');
-        Route::get ( 'cus-grid-show'        , 'Admin\Cus@showgrid'    )->name('cus-grid');
-        Route::post( 'cus-grid-show'        , 'Admin\Cus@showgrid'    )->name('cus-grid-post');
-     
-        Route::get ( 'cus-view/{id}'        , 'Admin\Cus@view'        )->name('cus-view');
-        Route::post( 'cus-view/{id}'        , 'Admin\Cus@edit'        )->name('cus-edit');
-        
-        Route::get ( 'cus-del/{id}'         , 'Admin\Cus@del'         )->name('cus-del');
-        Route::get ( 'cus-del-imgs/{id}'    , 'Admin\Cus@del_imgs'    )->name('cus-del-imgs');
-        Route::get ( 'cus-single/{id}'      , 'Admin\Cus@cus_single'  )->name('cus-single');
-
-        Route::get ( 'cus-print/{id}'      , 'Admin\Cus@print'        )->name('cus-print');
-        
-        // Accountaing start here when the print action is taken
-
-
-        Route::get ( 'cus-status-print/{id}', 'Admin\Cus@change_status_print'    )->name('cus-status-print');
-        
-
-
-
+        Route::get ( 'admin-cus'                  , 'Admin\Cus@index'               )->name('admin.cus');
+        Route::get ( 'admin-cus-org/{id}/{id2}'   , 'Admin\Cus@create_org'          )->name('admin.cus-org');
+        Route::post( 'admin-cus-org/{id}/{id2}'   , 'Admin\Cus@save'                )->name('admin.cus-org-save');
+        Route::get ( 'admin-cus-guild/{id}/{id2}' , 'Admin\Cus@create_guild'        )->name('admin.cus-guild');
+        Route::post( 'admin-cus-guild/{id}/{id2}' , 'Admin\Cus@save'                )->name('admin.cus-guild-save');
+        Route::post( 'admin-cus'                  , 'Admin\Cus@save'                )->name('admin.cus-save');
+        Route::get ( 'admin-cus-table-show'       , 'Admin\Cus@show'                )->name('admin.cus-table');
+        Route::post( 'admin-cus-table-show'       , 'Admin\Cus@show'                )->name('admin.cus-table-post');
+        Route::get ( 'admin-cus-grid-show'        , 'Admin\Cus@showgrid'            )->name('admin.cus-grid');
+        Route::post( 'admin-cus-grid-show'        , 'Admin\Cus@showgrid'            )->name('admin.cus-grid-post');
+        Route::get ( 'admin-cus-view/{id}'        , 'Admin\Cus@view'                )->name('admin.cus-view');
+        Route::post( 'admin-cus-view/{id}'        , 'Admin\Cus@edit'                )->name('admin.cus-edit');
+        Route::get ( 'admin-cus-del/{id}'         , 'Admin\Cus@del'                 )->name('admin.cus-del');
+        Route::get ( 'admin-cus-del-imgs/{id}'    , 'Admin\Cus@del_imgs'            )->name('admin.cus-del-imgs');
+        Route::get ( 'admin-cus-single/{id}'      , 'Admin\Cus@cus_single'          )->name('admin.cus-single');
+        Route::get ( 'admin-cus-print/{id}'       , 'Admin\Cus@print'               )->name('admin.cus-print');
+        Route::get ( 'admin-cus-status-print/{id}', 'Admin\Cus@change_status_print' )->name('admin.cus-status-print');
+    
     #############################################################################################
 
     // ADMIN STOCKS (GENERAL AND BLANKS)
@@ -192,22 +180,22 @@ Route::group(['middleware' => 'auth:web'],function(){
 
         //GENERAL
 
-        Route::get ( 'stock'          , 'Admin\Stocks@index')->name('stock');
-        Route::post( 'stock'          , 'Admin\Stocks@save' )->name('stock-save');
-        Route::get ( 'stock-show'     , 'Admin\Stocks@show' )->name('stock-show');
-        Route::get ( 'stock-view/{id}', 'Admin\Stocks@view' )->name('stock-view');
-        Route::post( 'stock-view/{id}', 'Admin\Stocks@edit' )->name('stock-edit');
-        Route::get ( 'stock-del/{id}' , 'Admin\Stocks@del'  )->name('stock-del');
+        Route::get ( 'admin-stock'          , 'Admin\Stocks@index')->name('admin.stock');
+        Route::post( 'admin-stock'          , 'Admin\Stocks@save' )->name('admin.stock-save');
+        Route::get ( 'admin-stock-show'     , 'Admin\Stocks@show' )->name('admin.stock-show');
+        Route::get ( 'admin-stock-view/{id}', 'Admin\Stocks@view' )->name('admin.stock-view');
+        Route::post( 'admin-stock-view/{id}', 'Admin\Stocks@edit' )->name('admin.stock-edit');
+        Route::get ( 'admin-stock-del/{id}' , 'Admin\Stocks@del'  )->name('admin.stock-del');
 
 
         //BLANKS
 
-        Route::get ( 'cardstock'          , 'Admin\CardStocks@index')->name('cardstock');
-        Route::post( 'cardstock'          , 'Admin\CardStocks@save' )->name('cardstock-save');
-        Route::get ( 'cardstock-show'     , 'Admin\CardStocks@show' )->name('cardstock-show');
-        Route::get ( 'cardstock-view/{id}', 'Admin\CardStocks@view' )->name('cardstock-view');
-        Route::post( 'cardstock-view/{id}', 'Admin\CardStocks@edit' )->name('cardstock-edit');
-        Route::get ( 'cardstock-del/{id}' , 'Admin\CardStocks@del'  )->name('cardstock-del');
+        Route::get ( 'admin-cardstock'          , 'Admin\CardStocks@index')->name('admin.cardstock');
+        Route::post( 'admin-cardstock'          , 'Admin\CardStocks@save' )->name('admin.cardstock-save');
+        Route::get ( 'admin-cardstock-show'     , 'Admin\CardStocks@show' )->name('admin.cardstock-show');
+        Route::get ( 'admin-cardstock-view/{id}', 'Admin\CardStocks@view' )->name('admin.cardstock-view');
+        Route::post( 'admin-cardstock-view/{id}', 'Admin\CardStocks@edit' )->name('admin.cardstock-edit');
+        Route::get ( 'admin-cardstock-del/{id}' , 'Admin\CardStocks@del'  )->name('admin.cardstock-del');
 
 
     #############################################################################################
@@ -216,12 +204,12 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'stockitem'           , 'Admin\StockItem@index')->name('stockitem');
-        Route::post('stockitem'           , 'Admin\StockItem@save' )->name('stockitem-save');
-        Route::get( 'stockitem-show'      , 'Admin\StockItem@show' )->name('stockitem-show');
-        Route::get( 'stockitem-view/{id}' , 'Admin\StockItem@view' )->name('stockitem-view');
-        Route::post('stockitem-view/{id}' , 'Admin\StockItem@edit' )->name('stockitem-edit');
-        Route::get( 'stockitem-del/{id}'  , 'Admin\StockItem@del'  )->name('stockitem-del');
+        Route::get( 'admin-stockitem'           , 'Admin\StockItem@index')->name('admin.stockitem');
+        Route::post('admin-stockitem'           , 'Admin\StockItem@save' )->name('admin.stockitem-save');
+        Route::get( 'admin-stockitem-show'      , 'Admin\StockItem@show' )->name('admin.stockitem-show');
+        Route::get( 'admin-stockitem-view/{id}' , 'Admin\StockItem@view' )->name('admin.stockitem-view');
+        Route::post('admin-stockitem-view/{id}' , 'Admin\StockItem@edit' )->name('admin.stockitem-edit');
+        Route::get( 'admin-stockitem-del/{id}'  , 'Admin\StockItem@del'  )->name('admin.stockitem-del');
 
     #############################################################################################
     
@@ -229,14 +217,15 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
-        Route::get( 'record'           , 'Admin\Records@index')->name('record');
-        Route::post('record'           , 'Admin\Records@save' )->name('record-save');
-        Route::get( 'record-show'      , 'Admin\Records@show' )->name('record-show');
-        Route::get( 'record-view/{id}' , 'Admin\Records@view' )->name('record-view');
-        Route::post('record-view/{id}' , 'Admin\Records@edit' )->name('record-edit');
-        Route::get( 'record-del/{id}'  , 'Admin\Records@del'  )->name('record-del');
+        Route::get( 'admin-record'           , 'Admin\Records@index')->name('admin.record');
+        Route::post('admin-record'           , 'Admin\Records@save' )->name('admin.record-save');
+        Route::get( 'admin-record-show'      , 'Admin\Records@show' )->name('admin.record-show');
+        Route::get( 'admin-record-view/{id}' , 'Admin\Records@view' )->name('admin.record-view');
+        Route::post('admin-record-view/{id}' , 'Admin\Records@edit' )->name('admin.record-edit');
+        Route::get( 'admin-record-del/{id}'  , 'Admin\Records@del'  )->name('admin.record-del');
 
     #############################################################################################
+
     
 
 ###################################

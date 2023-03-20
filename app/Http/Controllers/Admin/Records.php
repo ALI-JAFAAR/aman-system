@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 use App\Models\Record;
 use App\Models\Customer;
-
+use Auth;
 class Records extends Controller{
     
 
     function index(){
         $cus = Customer::all();
-        return view("backend.".Auth::user()->user.".record.index",compact(['cus']));
+        return view("backend.".Auth::user()->type.".record.index",compact(['cus']));
     
     }
 
@@ -21,7 +21,7 @@ class Records extends Controller{
         
         $cus = Customer::where('id',$id)->first();
         
-        return view("backend.".Auth::user()->user.".record.show",compact(['cus']));
+        return view("backend.".Auth::user()->type.".record.show",compact(['cus']));
     
     }
 }

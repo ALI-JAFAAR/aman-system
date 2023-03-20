@@ -11,26 +11,26 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{route('guild')}}" class="nav-link">
+          <a href="{{route(Auth::user()->type.'.guild')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>اضافة فرع</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{route('guild-show')}}" class="nav-link">
+          <a href="{{route(Auth::user()->type.'.guild-show')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>عرض الفروع</p>
           </a>
         </li>
         <hr>
         <li class="nav-item">
-          <a href="{{route('guildsub')}}" class="nav-link">
+          <a href="{{route(Auth::user()->type.'.guildsub')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>اضافة مهنة نقابة</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{route('guildsub-show')}}" class="nav-link">
+          <a href="{{route(Auth::user()->type.'.guildsub-show')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>عرض المهن النقابية</p>
           </a>
@@ -52,13 +52,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('cus')}}" class="nav-link">
+            <a href="{{route(Auth::user()->type.'.cus')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>اضافة منتسب </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('cus-grid')}}" class="nav-link">
+            <a href="{{route(Auth::user()->type.'.cus-grid')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>عرض جميع المنتسبين</p>
             </a>
