@@ -3,10 +3,17 @@
 @section('content')
 
 
+<br><br>
 
-
-<br>
-<br>
+              <!-- this row will not appear when printing -->
+              <div class="row no-print">
+                <div class="col-12">
+                  <a href="{{route('insurance.export')}}" type="button" class="btn btn-primary" style="margin-right: 15px;width: 100px;">
+                      <i class="fas fa-print"></i> تحميل  تقرير التامين
+                    </a>
+                    
+                </div>
+              </div>
 <div class="row no-print">
 
               </div>

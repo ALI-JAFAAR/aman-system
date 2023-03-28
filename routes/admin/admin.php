@@ -1,12 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Exports\CustomerExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 Route::group(['middleware' => 'auth:web'],function(){
 
-    Route::get('admins'             ,'MainController@index')->name('index-admin');
+    Route::get('/'             ,'MainController@index')->name('index-admin');
 
+
+    Route::get('/insurance-export', function() {
+        return Excel::download(new CustomerExport(), 'your_model.xlsx');
+    })->name('insurance.export');
 ###################################
 
     // ADMIN UNION 
@@ -226,6 +231,14 @@ Route::group(['middleware' => 'auth:web'],function(){
 
     #############################################################################################
 
+    // ADMIN OLD SYSTEM 
+
+    #############################################################################################
+
+        Route::get( 'admin-old-system'           , 'MainController@old_show'       )->name('admin.old-create');
+        Route::post('admin-old-system'           , 'MainController@old_import'     )->name('admin.old-import');
+        Route::get( 'admin-old-system-show'      , 'MainController@old_system_show')->name('admin.old-show');
+    #############################################################################################    
     
 
 ###################################

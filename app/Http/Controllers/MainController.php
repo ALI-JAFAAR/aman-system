@@ -21,6 +21,14 @@ use App\Models\PocketArchive;
 use App\Models\CardStock;
 use App\Models\CardPrinted;
 use App\Models\DamagedBlank;
+
+
+
+use App\Imports\OldSystemImport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Models\OldSystem;
+
+
 class MainController extends Controller{
     use Helpers;
 
@@ -181,6 +189,25 @@ class MainController extends Controller{
     }
     
     
+
+    function old_show(){
+
+        return view('backend.admin.oldsystem.index');
+    }
+
+    function old_import(Request $res){
+
+        $file = $res->file('excel');
+        $old = Excel::import(new OldSystemImport, $file);
+        return redirect()->back()->with('success', 'Imported successfully!');
+
+    }
+
+    function old_system_show(){
+        $old = OldSystem::all();
+        return view('backend.admin.oldsystem.show',compact('old'));
+    }
+
 }
 
 

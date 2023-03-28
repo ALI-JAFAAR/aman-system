@@ -72,10 +72,10 @@
 			var x = $('#service').find(":selected").val();
 			console.log(x);
 			if(x =='org'){
-				window.location = '{{route('cus-org',['2','4'])}}';
+				window.location = '{{route(Auth::user()->type.'.cus-org',['2','4'])}}';
 			}
 			if(x =='guild'){
-				window.location = '{{route('cus-guild',['3','5'])}}';
+				window.location = '{{route(Auth::user()->type.'.cus-guild',['3','5'])}}';
 			}
 		}
 

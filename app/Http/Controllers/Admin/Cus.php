@@ -40,7 +40,7 @@ class Cus extends Controller{
         $guildsub = GuildSub::all();
         $card     = Card::all();
         $package  = Package::all();
-        dd('3er');
+ 
         return view("backend.".Auth::user()->type.".cus.chose",compact(['union','gov','guildsub','guild','package','card']));
     
     }
