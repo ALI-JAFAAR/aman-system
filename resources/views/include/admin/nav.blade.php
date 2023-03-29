@@ -245,7 +245,7 @@
                   <p>عرض  المشتريات</p>
                 </a>
               </li>
-
+              
               <li class="nav-item">
                 <a href="{{route(Auth::user()->type.'.cardstock')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -260,6 +260,52 @@
                 </a>
               </li>
               
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>اظافة دائن</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>اظافة مدين</p>
+                </a>
+              </li>
+                
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ايداع</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>سحب</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>القاصة</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>كشف القاصة</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="{{route(Auth::user()->type.'.stockitem')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>انشاء قيد جديد</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -360,11 +406,33 @@
           {{-- END PACKAGE --}}
 
 
-
+          <hr>
           
-
-
-
+          {{-- OLD SYSTEM --}}
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-bag"></i>
+              <p>
+                بيانات النظام القديم
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.old-create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>اضافة </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.old-show')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>عرض </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{-- END OLD SYSTEM --}}
 
 
 
